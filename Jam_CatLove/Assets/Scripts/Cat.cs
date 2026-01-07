@@ -1,24 +1,28 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
+using UnityEngine.InputSystem;
 
 public class Cat : MonoBehaviour
 {
-    
     public Animator animator;
+
+    private void Update()
+    {
+        
+    }
+
+    public void SetAnimationState(bool isHovered)
+    {
+        animator.SetBool("IsHovered", isHovered);
+    }
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    public void Vanish()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void SetAnimationState(bool isHappy)
-    {
-        animator.SetBool("IsHappy", isHappy);
-    }
+    
 }
