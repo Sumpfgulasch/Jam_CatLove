@@ -85,6 +85,7 @@ public class CatManager : MonoBehaviour
 
         // Instantiate cat
         GameObject catObj = Instantiate(catPrefab, worldPosition, Quaternion.identity);
+        catObj.transform.eulerAngles = new Vector3(0f, 180f, 0f);
         Cat cat = catObj.GetComponent<Cat>();
 
         // Mark position as blocked

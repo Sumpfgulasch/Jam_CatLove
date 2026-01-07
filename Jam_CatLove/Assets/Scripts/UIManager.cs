@@ -98,6 +98,7 @@ public class UIManager : MonoBehaviour
             heartRect.DOScale(0.7f, moveDuration * 0.5f)
                 .SetDelay(moveDuration * 0.5f)
         );
+        heartSequence.AppendCallback(() => heartsCountText.text = (int.Parse(heartsCountText.text) + 1).ToString());
 
         // Destroy heart after animation completes
         heartSequence.OnComplete(() => Destroy(heart));
