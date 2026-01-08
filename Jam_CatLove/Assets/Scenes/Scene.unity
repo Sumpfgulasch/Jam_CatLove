@@ -1163,7 +1163,7 @@ MonoBehaviour:
   canvas: {fileID: 1758823349}
   cursorObject: {fileID: 524830658}
   offset: {x: 0, y: 0}
-  smoothFactor: 0.2
+  smoothFactor: 0.15
   rotationSpeed: 3
   rotationAngle: 30
   cursorOpenSprite: {fileID: 21300000, guid: 3120c5cee89f89642896db08d9d786ff, type: 3}
