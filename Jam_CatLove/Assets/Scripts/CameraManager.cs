@@ -64,12 +64,9 @@ public class CameraManager : MonoBehaviour
         currentRotation = transform.localEulerAngles;
         targetRotation = currentRotation;
         
-        // Initialize zoom to current camera local Z position
-        if (targetCamera != null)
-        {
-            currentZoom = -targetCamera.transform.localPosition.z;
-            targetZoom = currentZoom;
-        }
+
+        currentZoom = targetCamera.transform.localPosition.z;
+        targetZoom = currentZoom;
     }
 
     private void Update()
