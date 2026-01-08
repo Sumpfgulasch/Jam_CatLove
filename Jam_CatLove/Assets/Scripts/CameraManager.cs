@@ -64,10 +64,10 @@ public class CameraManager : MonoBehaviour
         currentRotation = transform.localEulerAngles;
         targetRotation = currentRotation;
         
-        // Initialize zoom to current camera field of view
+        // Initialize zoom to current camera local Z position
         if (targetCamera != null)
         {
-            currentZoom = targetCamera.fieldOfView;
+            currentZoom = -targetCamera.transform.localPosition.z;
             targetZoom = currentZoom;
         }
     }
@@ -121,16 +121,17 @@ public class CameraManager : MonoBehaviour
         if (scrollDelta != 0)
         {
             // Adjust target zoom based on scroll input
-            targetZoom -= scrollDelta * zoomSensitivity;
+            targetZoom += scrollDelta * zoomSensitivity;
             targetZoom = Mathf.Clamp(targetZoom, minZoom, maxZoom);
             
             // Reset scroll delta after processing
             scrollDelta = 0;
         }
 
-        // Smoothly interpolate current zoom towards target
         currentZoom = Mathf.Lerp(currentZoom, targetZoom, zoomSmoothing);
-        targetCamera.fieldOfView = currentZoom;
+        Vector3 newPosition = targetCamera.transform.localPosition;
+        newPosition.z = currentZoom;
+        targetCamera.transform.localPosition = newPosition;
     }
 
     private void OnDestroy()
