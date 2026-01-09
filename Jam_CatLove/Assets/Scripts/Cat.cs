@@ -12,13 +12,8 @@ public class Cat : MonoBehaviour
     {
         
     }
-
-    public void SetAnimationState(bool isHovered)
-    {
-        animator.SetBool("IsHovered", isHovered);
-    }
     
-    public void SetAnimationState(float happiness)
+    public void SetAnimationHappiness(float happiness)
     {
         animator.SetFloat("Happy", happiness);
     }

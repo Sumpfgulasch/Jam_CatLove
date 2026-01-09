@@ -51,10 +51,9 @@ public class UIManager : MonoBehaviour
         heartsCountText.text = count.ToString();
     }
     
-    public void SpawnCatHeart(Transform catTransform)
+    public void SpawnCatHeart(Vector2 screenPoint)
     {
         // Convert the cat's heart spawn position to canvas space
-        Vector3 screenPoint = Camera.main.WorldToScreenPoint(catTransform.position);
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             canvas.GetComponent<RectTransform>(),
             screenPoint,
@@ -65,7 +64,7 @@ public class UIManager : MonoBehaviour
         // Instantiate heart as child of canvas
         GameObject heart = Instantiate(catHeartPrefab, canvas.transform);
         RectTransform heartRect = heart.GetComponent<RectTransform>();
-        heartRect.anchoredPosition = canvasPosition;// + new Vector2(0, heartSpawnOffset);
+        heartRect.anchoredPosition = canvasPosition;
         
         // Start at scale 0
         heartRect.localScale = Vector3.zero;

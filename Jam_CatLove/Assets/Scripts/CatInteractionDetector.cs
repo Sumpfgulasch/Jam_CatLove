@@ -4,7 +4,7 @@ using System;
 
 public class CatInteractionDetector : MonoBehaviour
 {
-    public delegate void CatPetted(string zone, float speed);
+    public delegate void CatPetted(string zone, float speed, Vector2 cursorPosition);
     public event CatPetted OnCatPetted;
     
     [SerializeField] private InputActionReference moveCursorAction;
@@ -17,11 +17,13 @@ public class CatInteractionDetector : MonoBehaviour
     private Camera mainCamera;
     private bool isInteracting = false;
     private Vector2 previousCursorPosition = new ();
+    private float screenDiagonal;
     
     
     void Awake()
     {
         inputActions = new InputSystem_Actions();
+        screenDiagonal = Mathf.Sqrt(Screen.width * Screen.width + Screen.height * Screen.height);
     }
     
     private void OnEnable()
@@ -64,10 +66,9 @@ public class CatInteractionDetector : MonoBehaviour
         // Invoke event
         if (isInteracting)
         {
-            var screenDiagonal = Mathf.Sqrt(Screen.width * Screen.width + Screen.height * Screen.height);
             var speed = (((cursorPosition - previousCursorPosition) / Time.deltaTime).magnitude) / screenDiagonal;
             Debug.Log($"layer: {hitLayer}, speed: {speed}");
-            OnCatPetted?.Invoke(hitLayer, speed);
+            OnCatPetted?.Invoke(hitLayer, speed, cursorPosition);
         }
         
         previousCursorPosition = cursorPosition;
