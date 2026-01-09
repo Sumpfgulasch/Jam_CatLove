@@ -48,7 +48,7 @@ public class CatInteractionDetector : MonoBehaviour
     
     private void OnMoveCursor(InputAction.CallbackContext context)
     {
-        cursorPosition = context.ReadValue<Vector2>();
+        cursorPosition = context.ReadValue<Vector2>(); // in pixels
         
         // Check hits
         var hits = Physics.RaycastAll(Camera.main.ScreenPointToRay(cursorPosition));
@@ -64,7 +64,8 @@ public class CatInteractionDetector : MonoBehaviour
         // Invoke event
         if (isInteracting)
         {
-            var speed = ((cursorPosition - previousCursorPosition) / Time.deltaTime).magnitude;
+            var screenDiagonal = Mathf.Sqrt(Screen.width * Screen.width + Screen.height * Screen.height);
+            var speed = (((cursorPosition - previousCursorPosition) / Time.deltaTime).magnitude) / screenDiagonal;
             Debug.Log($"layer: {hitLayer}, speed: {speed}");
             OnCatPetted?.Invoke(hitLayer, speed);
         }
