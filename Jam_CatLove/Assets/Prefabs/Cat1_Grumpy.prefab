@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3357101676966177676}
   - component: {fileID: 7322182012952727960}
   - component: {fileID: 264558996921858661}
+  - component: {fileID: 4246795132388720761}
   m_Layer: 0
   m_Name: Cat1_Grumpy
   m_TagString: Cat
@@ -91,6 +92,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7215773659006438558, guid: 53b70f46fd261b241a06b648f3035b3f, type: 3}
+--- !u!114 &4246795132388720761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705805181435744711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bba8023b1d36bc41bd512ff11f59331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatVFX
 --- !u!1001 &4296732444548445104
 PrefabInstance:
   m_ObjectHideFlags: 0

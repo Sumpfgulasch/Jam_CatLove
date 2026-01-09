@@ -11,7 +11,7 @@ public class CatInteractionDetector : MonoBehaviour
     [SerializeField] private InputActionReference moveCursorAction;
     [SerializeField] private InputActionReference interactAction;
 
-    private string hitLayer;
+    private string hitCatLayer;
 
     private InputSystem_Actions inputActions;
     private Vector2 cursorPosition = new();
@@ -49,7 +49,7 @@ public class CatInteractionDetector : MonoBehaviour
         cursorPosition = context.ReadValue<Vector2>(); // in pixels
 
         // // Check hits
-        isCatHover = IsCatHover(cursorPosition, out hitLayer);
+        isCatHover = IsCatHover(cursorPosition, out hitCatLayer);
         if (!isCatHover)
         {
             return;
@@ -59,26 +59,26 @@ public class CatInteractionDetector : MonoBehaviour
         if (isInteractionButtonHold)
         {
             var speed = (((cursorPosition - previousCursorPosition) / Time.deltaTime).magnitude) / screenDiagonal;
-            OnCatPetted?.Invoke(hitLayer, speed, cursorPosition);
-            Debug.Log($"layer: {hitLayer}, speed: {speed}");
+            OnCatPetted?.Invoke(hitCatLayer, speed, cursorPosition);
+            Debug.Log($"layer: {hitCatLayer}, speed: {speed}");
         }
 
         previousCursorPosition = cursorPosition;
     }
 
-    private bool IsCatHover(Vector2 cursorPos, out string hitCatLayer)
+    private bool IsCatHover(Vector2 cursorPos, out string hitLayer)
     {
         // Check hits
         var hits = Physics.RaycastAll(Camera.main.ScreenPointToRay(cursorPos));
         System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
         if (hits.Length == 0 || !hits[0].collider.CompareTag("Cat"))
         {
-            hitCatLayer = null;
+            hitLayer = null;
             return false;
         }
 
         // Get zone
-        hitCatLayer = LayerMask.LayerToName(hits[0].collider.gameObject.layer);
+        hitLayer = LayerMask.LayerToName(hits[0].collider.gameObject.layer);
         return true;
     }
 
@@ -89,7 +89,7 @@ public class CatInteractionDetector : MonoBehaviour
             isInteractionButtonHold = true;
             if (isCatHover)
             {
-                OnCatPetted?.Invoke(hitLayer, 1, cursorPosition); // 1 arbitrary
+                OnCatPetted?.Invoke(hitCatLayer, 1, cursorPosition); // 1 arbitrary
             }
         }
         else if (context.canceled)
