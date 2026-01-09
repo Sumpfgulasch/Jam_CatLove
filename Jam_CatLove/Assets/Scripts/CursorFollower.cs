@@ -10,7 +10,6 @@ public class CursorFollower : MonoBehaviour
     [SerializeField] private float movementSmoothing = 0.15f;
     [SerializeField] private float rotationAccelerationgDamping = 0.3f;
     [SerializeField] private float rotationDecelerationgDamping = 0.1f;
-    [SerializeField] private float maxRotationSpeed = 5f; // Speed of rotation
     [SerializeField] private float maxRotationAngle = 15f; // Max rotation angle in degrees
 
     [Header("Cursor Sprites")] [SerializeField]

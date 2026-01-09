@@ -9,7 +9,6 @@ public class UIManager : MonoBehaviour
     [Header("Heart Spawn Settings")]
     [SerializeField] private GameObject catHeartPrefab;
     [SerializeField] private Canvas canvas;
-    [SerializeField] private float heartSpawnOffset = 50f; // Offset from cat's position in pixels
     
     [Header("Animation Settings")]
     [SerializeField] private float popDuration = 0.3f;

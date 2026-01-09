@@ -148,11 +148,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 612071987}
   - {fileID: 1289668008}
   - {fileID: 787192971}
   - {fileID: 1599527529}
   - {fileID: 535814727}
-  - {fileID: 612071987}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &430028848
@@ -585,6 +585,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff56d55d841295d47959035e873be620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameplayManager
+  catZones:
+  - CatLowerBack
+  - CatBackLeftLeg
+  cat: {fileID: 1613843684}
+  interactionDetector: {fileID: 1289668010}
 --- !u!1 &617342669
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,7 +696,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
   catHeartPrefab: {fileID: 1637053342802132763, guid: 2510fac1f5666d24ca87957894e784f7, type: 3}
   canvas: {fileID: 1758823349}
-  heartSpawnOffset: 50
   popDuration: 0.3
   moveDuration: 0.8
   popOvershoot: 1.2
@@ -910,6 +914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CatInteractionHandler
   moveCursorAction: {fileID: 0}
+  interactAction: {fileID: 0}
 --- !u!1 &1291486345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,7 +1131,6 @@ MonoBehaviour:
   movementSmoothing: 0.15
   rotationAccelerationgDamping: 0.3
   rotationDecelerationgDamping: 0.1
-  maxRotationSpeed: 5
   maxRotationAngle: 15
   cursorOpenSprite: {fileID: 21300000, guid: 3120c5cee89f89642896db08d9d786ff, type: 3}
   cursorClosedSprite: {fileID: 21300000, guid: 0cc385c5eb1d74747af203b0992956df, type: 3}
@@ -1270,26 +1274,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cat1_Grumpy
       objectReference: {fileID: 0}
-    - target: {fileID: 918575049339918160, guid: b4cf846a921643e428914ee7781557a0, type: 3}
-      propertyPath: m_Height
-      value: 0.0026915502
-      objectReference: {fileID: 0}
-    - target: {fileID: 918575049339918160, guid: b4cf846a921643e428914ee7781557a0, type: 3}
-      propertyPath: m_Radius
-      value: 0.0011457523
-      objectReference: {fileID: 0}
-    - target: {fileID: 918575049339918160, guid: b4cf846a921643e428914ee7781557a0, type: 3}
-      propertyPath: m_Center.x
-      value: 0.000038519276
-      objectReference: {fileID: 0}
-    - target: {fileID: 918575049339918160, guid: b4cf846a921643e428914ee7781557a0, type: 3}
-      propertyPath: m_Center.y
-      value: 0.00069578114
-      objectReference: {fileID: 0}
-    - target: {fileID: 918575049339918160, guid: b4cf846a921643e428914ee7781557a0, type: 3}
-      propertyPath: m_Center.z
-      value: 0.000017452161
-      objectReference: {fileID: 0}
     - target: {fileID: 2085054165821173843, guid: b4cf846a921643e428914ee7781557a0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1330,23 +1314,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4492624601217858985, guid: b4cf846a921643e428914ee7781557a0, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4492624601217858985, guid: b4cf846a921643e428914ee7781557a0, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 8097182026575332091, guid: b4cf846a921643e428914ee7781557a0, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4cf846a921643e428914ee7781557a0, type: 3}
+--- !u!114 &1613843684 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3357101676966177676, guid: b4cf846a921643e428914ee7781557a0, type: 3}
+  m_PrefabInstance: {fileID: 1613843683}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1c6c3cafece1d84fb48a6cbb8ad5f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cat
 --- !u!1 &1632358250
 GameObject:
   m_ObjectHideFlags: 0

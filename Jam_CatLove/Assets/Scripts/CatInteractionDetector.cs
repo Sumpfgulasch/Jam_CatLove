@@ -4,19 +4,19 @@ using System;
 
 public class CatInteractionDetector : MonoBehaviour
 {
-    public event Action<Cat> OnCatClicked;
-    public event Action<Cat> OnCatHoverEnter;
-    public event Action<Cat> OnCatHoverExit;
-    public event Action<Cat> OnCatInteraction;
+    public delegate void CatPetted(string zone, float speed);
+    public event CatPetted OnCatPetted;
     
     [SerializeField] private InputActionReference moveCursorAction;
-    
-    public int HitLayer { get; private set; }
+    [SerializeField] private InputActionReference interactAction;
+
+    private string hitLayer;
     
     private InputSystem_Actions inputActions;
     private Vector2 cursorPosition = new ();
     private Camera mainCamera;
-    private Cat currentHoveredCat = null;
+    private bool isInteracting = false;
+    private Vector2 previousCursorPosition = new ();
     
     
     void Awake()
@@ -28,13 +28,13 @@ public class CatInteractionDetector : MonoBehaviour
     {
         inputActions.Player.Enable();
         inputActions.Player.MoveCursor.performed += OnMoveCursor;
+        inputActions.Player.Interact.started += OnInteract;
+        inputActions.Player.Interact.canceled += OnInteract;
     }
     
     private void Start()
     {
         mainCamera = Camera.main;
-        OnCatClicked += (cat) =>OnCatInteraction?.Invoke(cat);
-        OnCatHoverEnter += (cat) =>OnCatInteraction?.Invoke(cat);
     }
     
     
@@ -42,85 +42,46 @@ public class CatInteractionDetector : MonoBehaviour
     {
         inputActions.Player.Disable();
         inputActions.Player.MoveCursor.performed -= OnMoveCursor;
+        inputActions.Player.Interact.started -= OnInteract;
+        inputActions.Player.Interact.canceled -= OnInteract;
     }
     
     private void OnMoveCursor(InputAction.CallbackContext context)
     {
         cursorPosition = context.ReadValue<Vector2>();
         
+        // Check hits
         var hits = Physics.RaycastAll(Camera.main.ScreenPointToRay(cursorPosition));
-        // Sort hits by distance
         System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
-        
-        if (hits.Length >= 1)
+        if (hits.Length == 0 || !hits[0].collider.CompareTag("Cat"))
         {
-            HitLayer = hits[0].collider.gameObject.layer;
-            Debug.Log($"layer: {LayerMask.LayerToName(HitLayer)}");
+            return;
         }
         
+        // Get cat zone
+        hitLayer = LayerMask.LayerToName(hits[0].collider.gameObject.layer);
+
+        // Invoke event
+        if (isInteracting)
+        {
+            var speed = ((cursorPosition - previousCursorPosition) / Time.deltaTime).magnitude;
+            Debug.Log($"layer: {hitLayer}, speed: {speed}");
+            OnCatPetted?.Invoke(hitLayer, speed);
+        }
+        
+        previousCursorPosition = cursorPosition;
     }
     
+    private void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            isInteracting = true;
+        }
+        else if (context.canceled)
+        {
+            isInteracting = false;
+        }
+    }
     
-    
-
-    private void Update()
-    {
-        CheckHover();
-        CheckClick();
-    }
-
-    private void CheckHover()
-    {
-        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-        Cat hoveredCat = null;
-
-        if (Physics.Raycast(ray, out RaycastHit hit))
-        {
-            hoveredCat = hit.collider.GetComponent<Cat>();
-        }
-
-        // Hover state changed
-        if (hoveredCat != currentHoveredCat)
-        {
-            // Exit previous cat
-            if (currentHoveredCat != null)
-            {
-                OnCatHoverExit?.Invoke(currentHoveredCat);
-            }
-
-            // Enter new cat
-            if (hoveredCat != null)
-            {
-                OnCatHoverEnter?.Invoke(hoveredCat);
-            }
-
-            currentHoveredCat = hoveredCat;
-        }
-    }
-
-    private void CheckClick()
-    {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                Cat clickedCat = hit.collider.GetComponent<Cat>();
-                if (clickedCat != null)
-                {
-                    OnCatClicked?.Invoke(clickedCat);
-                }
-            }
-        }
-    }
-
-    // Clear hovered cat reference when it gets destroyed
-    public void ClearHoveredCat(Cat cat)
-    {
-        if (currentHoveredCat == cat)
-        {
-            currentHoveredCat = null;
-        }
-    }
 }
