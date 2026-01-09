@@ -40,8 +40,8 @@ public class CameraManager : MonoBehaviour
         inputActions.Player.Enable();
         
         // Subscribe to Look action (mouse delta when right-click is held)
-        inputActions.Player.Look.performed += OnLook;
-        inputActions.Player.Look.canceled += OnLook;
+        inputActions.Player.RotateCamera.performed += OnLook;
+        inputActions.Player.RotateCamera.canceled += OnLook;
         
         // Subscribe to Zoom action (scroll wheel)
         inputActions.Player.Zoom.performed += OnZoom;
@@ -50,8 +50,8 @@ public class CameraManager : MonoBehaviour
 
     private void OnDisable()
     {
-        inputActions.Player.Look.performed -= OnLook;
-        inputActions.Player.Look.canceled -= OnLook;
+        inputActions.Player.RotateCamera.performed -= OnLook;
+        inputActions.Player.RotateCamera.canceled -= OnLook;
         inputActions.Player.Zoom.performed -= OnZoom;
         inputActions.Player.Zoom.canceled -= OnZoom;
         

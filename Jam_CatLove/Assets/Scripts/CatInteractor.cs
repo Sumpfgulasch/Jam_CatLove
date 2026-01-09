@@ -1,16 +1,27 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CatInteractor : MonoBehaviour
 {
+    [SerializeField] private CatInteractionDetector catInteractionDetector;
+
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    
+    
+    
+    private void HandleCatInteractionStart(Cat cat)
     {
-        
+        cat.SetAnimationState(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void HandleCatInteractionStop(Cat cat)
     {
-        
+        cat.SetAnimationState(false);
+    }
+    
+    private void OnCatInteraction(Cat cat)
+    {
+        UIManager.Instance.SpawnCatHeart(cat.transform);
     }
 }

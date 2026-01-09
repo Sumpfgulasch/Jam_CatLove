@@ -93,19 +93,19 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             ""id"": ""df70fa95-8a34-4494-b137-73ab6b9c7d37"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
+                    ""name"": ""RotateCamera"",
                     ""type"": ""Value"",
-                    ""id"": ""351f2ccd-1f9f-44bf-9bec-d62ac5c5f408"",
+                    ""id"": ""6b444451-8a00-4d00-a97e-f47457f736a8"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Look"",
+                    ""name"": ""Zoom"",
                     ""type"": ""Value"",
-                    ""id"": ""6b444451-8a00-4d00-a97e-f47457f736a8"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""id"": ""d225237b-2b1e-40c3-8c83-f1b567e3367f"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -120,36 +120,16 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Zoom"",
+                    ""name"": ""MoveCursor"",
                     ""type"": ""Value"",
-                    ""id"": ""d225237b-2b1e-40c3-8c83-f1b567e3367f"",
-                    ""expectedControlType"": """",
+                    ""id"": ""58d7163f-acc5-4427-a019-5f7f316b43aa"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""test"",
-                    ""type"": ""Button"",
-                    ""id"": ""23b20762-393f-4b66-9d90-3122cca037c7"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""c53062d4-7e4f-4712-a7c5-8f9c5491c17a"",
-                    ""path"": ""<Mouse>/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""c1f7a91b-d0fd-4a62-997e-7fb9b69bf235"",
@@ -157,7 +137,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Look"",
+                    ""action"": ""RotateCamera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -168,7 +148,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Look"",
+                    ""action"": ""RotateCamera"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -179,7 +159,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Look"",
+                    ""action"": ""RotateCamera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -190,7 +170,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Look"",
+                    ""action"": ""RotateCamera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -219,10 +199,32 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b3f66d0b-7751-423f-908b-a11c5bd95930"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""93451398-879f-4aad-b916-fde8571867b1"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ded5a846-14eb-4ddf-86d1-6bd46c3310b7"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -239,37 +241,26 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""One Modifier"",
-                    ""id"": ""e378ef92-3aa4-4bde-8c36-c0530fa12e03"",
-                    ""path"": ""OneModifier"",
+                    ""name"": """",
+                    ""id"": ""8934752e-b59a-4aa9-a277-8f5a4ea58930"",
+                    ""path"": ""<Pointer>/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""test"",
-                    ""isComposite"": true,
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""MoveCursor"",
+                    ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""modifier"",
-                    ""id"": ""f794be3e-9f14-47da-aa27-0cee89d67d05"",
-                    ""path"": """",
+                    ""name"": """",
+                    ""id"": ""781c411a-a23b-4e3d-87ef-d4feabe141ab"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""test"",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""MoveCursor"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""binding"",
-                    ""id"": ""3786730c-148c-4e2d-bb3a-cbb1f14ed9c1"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""test"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -855,11 +846,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
-        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_RotateCamera = m_Player.FindAction("RotateCamera", throwIfNotFound: true);
         m_Player_Zoom = m_Player.FindAction("Zoom", throwIfNotFound: true);
-        m_Player_test = m_Player.FindAction("test", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_MoveCursor = m_Player.FindAction("MoveCursor", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -953,11 +943,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Look;
-    private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_RotateCamera;
     private readonly InputAction m_Player_Zoom;
-    private readonly InputAction m_Player_test;
+    private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_MoveCursor;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -970,25 +959,21 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// </summary>
         public PlayerActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Player/Move".
+        /// Provides access to the underlying input action "Player/RotateCamera".
         /// </summary>
-        public InputAction @Move => m_Wrapper.m_Player_Move;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Look".
-        /// </summary>
-        public InputAction @Look => m_Wrapper.m_Player_Look;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Interact".
-        /// </summary>
-        public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @RotateCamera => m_Wrapper.m_Player_RotateCamera;
         /// <summary>
         /// Provides access to the underlying input action "Player/Zoom".
         /// </summary>
         public InputAction @Zoom => m_Wrapper.m_Player_Zoom;
         /// <summary>
-        /// Provides access to the underlying input action "Player/test".
+        /// Provides access to the underlying input action "Player/Interact".
         /// </summary>
-        public InputAction @test => m_Wrapper.m_Player_test;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/MoveCursor".
+        /// </summary>
+        public InputAction @MoveCursor => m_Wrapper.m_Player_MoveCursor;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1015,21 +1000,18 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
-            @Look.started += instance.OnLook;
-            @Look.performed += instance.OnLook;
-            @Look.canceled += instance.OnLook;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
+            @RotateCamera.started += instance.OnRotateCamera;
+            @RotateCamera.performed += instance.OnRotateCamera;
+            @RotateCamera.canceled += instance.OnRotateCamera;
             @Zoom.started += instance.OnZoom;
             @Zoom.performed += instance.OnZoom;
             @Zoom.canceled += instance.OnZoom;
-            @test.started += instance.OnTest;
-            @test.performed += instance.OnTest;
-            @test.canceled += instance.OnTest;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
+            @MoveCursor.started += instance.OnMoveCursor;
+            @MoveCursor.performed += instance.OnMoveCursor;
+            @MoveCursor.canceled += instance.OnMoveCursor;
         }
 
         /// <summary>
@@ -1041,21 +1023,18 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="PlayerActions" />
         private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
-            @Look.started -= instance.OnLook;
-            @Look.performed -= instance.OnLook;
-            @Look.canceled -= instance.OnLook;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
+            @RotateCamera.started -= instance.OnRotateCamera;
+            @RotateCamera.performed -= instance.OnRotateCamera;
+            @RotateCamera.canceled -= instance.OnRotateCamera;
             @Zoom.started -= instance.OnZoom;
             @Zoom.performed -= instance.OnZoom;
             @Zoom.canceled -= instance.OnZoom;
-            @test.started -= instance.OnTest;
-            @test.performed -= instance.OnTest;
-            @test.canceled -= instance.OnTest;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
+            @MoveCursor.started -= instance.OnMoveCursor;
+            @MoveCursor.performed -= instance.OnMoveCursor;
+            @MoveCursor.canceled -= instance.OnMoveCursor;
         }
 
         /// <summary>
@@ -1357,26 +1336,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         /// <summary>
-        /// Method invoked when associated input action "Move" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "RotateCamera" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMove(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Look" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnLook(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnInteract(InputAction.CallbackContext context);
+        void OnRotateCamera(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Zoom" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -1385,12 +1350,19 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnZoom(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "test" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnTest(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MoveCursor" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMoveCursor(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

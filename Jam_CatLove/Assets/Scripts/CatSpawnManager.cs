@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
-public class CatManager : MonoBehaviour
+public class CatSpawnManager : MonoBehaviour
 {
     [Header("Grid Settings")] [SerializeField]
     private int gridWidth = 4;
@@ -25,16 +25,7 @@ public class CatManager : MonoBehaviour
 
     private void Start()
     {
-        catInteractionDetector.OnCatHoverEnter += HandleCatInteractionStart;
-        catInteractionDetector.OnCatHoverExit += HandleCatInteractionStop;
-        catInteractionDetector.OnCatInteraction += OnCatInteraction;
-        
         StartCoroutine(SpawnCatsRoutine());
-    }
-    
-    private void OnCatInteraction(Cat cat)
-    {
-        UIManager.Instance.SpawnCatHeart(cat.transform);
     }
     
     private IEnumerator SpawnCatsRoutine()
@@ -91,16 +82,6 @@ public class CatManager : MonoBehaviour
         // Mark position as blocked
         blockedIndices.Add(index);
         catToIndexMap[cat] = index;
-    }
-
-    private void HandleCatInteractionStart(Cat cat)
-    {
-        cat.SetAnimationState(true);
-    }
-
-    private void HandleCatInteractionStop(Cat cat)
-    {
-        cat.SetAnimationState(false);
     }
 
     private void HandleCatFinished(Cat cat)
