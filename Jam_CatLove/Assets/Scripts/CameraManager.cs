@@ -65,7 +65,7 @@ public class CameraManager : MonoBehaviour
         targetRotation = currentRotation;
         
 
-        currentZoom = targetCamera.transform.localPosition.z;
+        currentZoom = minZoom;
         targetZoom = currentZoom;
     }
 
