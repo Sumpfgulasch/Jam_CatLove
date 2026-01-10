@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3357101676966177676}
   - component: {fileID: 7322182012952727960}
   - component: {fileID: 264558996921858661}
-  - component: {fileID: 4246795132388720761}
   m_Layer: 0
   m_Name: Cat1_Grumpy
   m_TagString: Cat
@@ -49,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cat
   animator: {fileID: 1301597756014833390}
+  zones: {fileID: 0}
 --- !u!65 &7322182012952727960
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -92,18 +92,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7215773659006438558, guid: 53b70f46fd261b241a06b648f3035b3f, type: 3}
---- !u!114 &4246795132388720761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705805181435744711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bba8023b1d36bc41bd512ff11f59331, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CatVFX
 --- !u!1001 &4296732444548445104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -234,7 +222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 430108200687226393, guid: 53b70f46fd261b241a06b648f3035b3f, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 430108200687226393, guid: 53b70f46fd261b241a06b648f3035b3f, type: 3}
       propertyPath: m_TagString
@@ -354,12 +342,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 53b70f46fd261b241a06b648f3035b3f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1301597756014833390}
-    - targetCorrespondingSourceObject: {fileID: 430108200687226393, guid: 53b70f46fd261b241a06b648f3035b3f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 918575049339918160}
-    - targetCorrespondingSourceObject: {fileID: 430108200687226393, guid: 53b70f46fd261b241a06b648f3035b3f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8128340501380818995}
   m_SourcePrefab: {fileID: 100100000, guid: 53b70f46fd261b241a06b648f3035b3f, type: 3}
 --- !u!4 &233191921598556250 stripped
 Transform:
@@ -572,62 +554,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8690295966451736331, guid: 53b70f46fd261b241a06b648f3035b3f, type: 3}
   m_PrefabInstance: {fileID: 4296732444548445104}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4492624601217858985 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 430108200687226393, guid: 53b70f46fd261b241a06b648f3035b3f, type: 3}
-  m_PrefabInstance: {fileID: 4296732444548445104}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &918575049339918160
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4492624601217858985}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.0011457523
-  m_Height: 0.0026915502
-  m_Direction: 1
-  m_Center: {x: 0.000038519276, y: 0.00069578114, z: 0.000017452161}
---- !u!114 &8128340501380818995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4492624601217858985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
-  m_Material: {fileID: 2100000, guid: b8aa9e35baacef94585af62fe868ec97, type: 2}
-  m_DrawDistance: 4.9
-  m_FadeScale: 1
-  m_StartAngleFade: 180
-  m_EndAngleFade: 180
-  m_UVScale: {x: 0.96944493, y: 0.9886795}
-  m_UVBias: {x: -0.064576805, y: 0.0000004172325}
-  m_RenderingLayerMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_ScaleMode: 0
-  m_Offset: {x: -0.0063499734, y: 0.04, z: 0.01}
-  m_Size: {x: 0.24665807, y: 0.18096584, z: 0.31}
-  m_FadeFactor: 1
-  version: 1
-  m_DecalLayerMask: 1
 --- !u!4 &5301620673577272157 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -994683581542141715, guid: 53b70f46fd261b241a06b648f3035b3f, type: 3}

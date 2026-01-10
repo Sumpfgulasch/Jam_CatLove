@@ -152,9 +152,152 @@ Transform:
   - {fileID: 1289668008}
   - {fileID: 787192971}
   - {fileID: 1599527529}
-  - {fileID: 535814727}
+  - {fileID: 899107323}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &139575452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 139575453}
+  - component: {fileID: 139575456}
+  - component: {fileID: 139575455}
+  - component: {fileID: 139575454}
+  m_Layer: 8
+  m_Name: FrontRightPaw
+  m_TagString: Cat
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &139575453
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139575452}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.4406968, y: 0.02991615, z: -0.014697225, w: 0.8970369}
+  m_LocalPosition: {x: -0.0541, y: 0.052, z: -0.1406}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 341908761}
+  m_LocalEulerAnglesHint: {x: 52.328, y: 3.82, z: 0}
+--- !u!114 &139575454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139575452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
+  m_Material: {fileID: 2100000, guid: b8aa9e35baacef94585af62fe868ec97, type: 2}
+  m_DrawDistance: 4.9
+  m_FadeScale: 1
+  m_StartAngleFade: 180
+  m_EndAngleFade: 180
+  m_UVScale: {x: 0.7128759, y: 0.8383028}
+  m_UVBias: {x: 0, y: -0.000000053218432}
+  m_RenderingLayerMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ScaleMode: 0
+  m_Offset: {x: -0.00961899, y: -0.01298051, z: -0.06423092}
+  m_Size: {x: 0.049901307, y: 0.058681197, z: 0.14500278}
+  m_FadeFactor: 1
+  version: 1
+  m_DecalLayerMask: 1
+--- !u!65 &139575455
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139575452}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.068203285, y: 0.08365226, z: 0.06924731}
+  m_Center: {x: -0.011365394, y: -0.018002862, z: -0.032553613}
+--- !u!114 &139575456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139575452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ecfc430be77814c977b9eee0682167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatZone
+  DecalProjector: {fileID: 139575454}
+--- !u!1 &341908760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 341908761}
+  - component: {fileID: 341908762}
+  m_Layer: 0
+  m_Name: CatZones
+  m_TagString: Cat
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &341908761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341908760}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2016415780}
+  - {fileID: 819070589}
+  - {fileID: 139575453}
+  m_Father: {fileID: 1872840931}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &341908762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341908760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bba8023b1d36bc41bd512ff11f59331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatZones
 --- !u!1 &430028848
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +499,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &460195001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Player/Interact
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_ActionId: 852140f2-7766-474d-8707-702459ba45f3
 --- !u!1 &470031142
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,6 +559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cat
   animator: {fileID: 0}
+  zones: {fileID: 0}
 --- !u!1 &477787595
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,37 +668,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524830657}
   m_CullTransparentMesh: 1
---- !u!1 &535814726
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 535814727}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &535814727
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535814726}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 58547742}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &612071986
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,11 +712,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff56d55d841295d47959035e873be620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameplayManager
-  catZones:
-  - CatLowerBack
-  - CatBackLeftLeg
   cat: {fileID: 1613843684}
   interactionDetector: {fileID: 1289668010}
+  catVisualSettings: {fileID: 11400000, guid: 236d92b0df849024283304c55d4a802f, type: 2}
+  heartsMinSpawnInterval: 0.1
+  pettingSpeedMultiplier: 0.2
+  zoneActivationDelay: 1
 --- !u!1 &617342669
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,7 +844,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 58547742}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &902850782
+--- !u!1 &819070588
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -724,22 +852,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 902850784}
-  - component: {fileID: 902850783}
-  m_Layer: 0
-  m_Name: Decal Projector
-  m_TagString: Untagged
+  - component: {fileID: 819070589}
+  - component: {fileID: 819070592}
+  - component: {fileID: 819070591}
+  - component: {fileID: 819070590}
+  m_Layer: 7
+  m_Name: BackLeftLeg
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &902850783
+  m_IsActive: 1
+--- !u!4 &819070589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819070588}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.068, y: 0.243, z: 0.1129}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 341908761}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &819070590
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 902850782}
+  m_GameObject: {fileID: 819070588}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
@@ -747,35 +892,98 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
   m_Material: {fileID: 2100000, guid: b8aa9e35baacef94585af62fe868ec97, type: 2}
   m_DrawDistance: 4.9
-  m_FadeScale: 0
+  m_FadeScale: 1
   m_StartAngleFade: 180
   m_EndAngleFade: 180
-  m_UVScale: {x: 0.96944493, y: 0.9886795}
-  m_UVBias: {x: -0.064576805, y: 0.0000004172325}
+  m_UVScale: {x: 1, y: 1}
+  m_UVBias: {x: 0, y: 0}
   m_RenderingLayerMask:
     serializedVersion: 0
     m_Bits: 1
   m_ScaleMode: 0
-  m_Offset: {x: -0.0063499734, y: 0.07061504, z: 0.058183264}
-  m_Size: {x: 0.24665807, y: 0.18096584, z: 0.11636653}
+  m_Offset: {x: 0.00092715025, y: -0.018323466, z: -0.06423092}
+  m_Size: {x: 0.15080592, y: 0.17519793, z: 0.14500278}
   m_FadeFactor: 1
   version: 1
   m_DecalLayerMask: 1
---- !u!4 &902850784
+--- !u!65 &819070591
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819070588}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.14241774, y: 0.14925168, z: 0.06924732}
+  m_Center: {x: -0.008391134, y: -0.024829023, z: -0.03255362}
+--- !u!114 &819070592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819070588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ecfc430be77814c977b9eee0682167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatZone
+  DecalProjector: {fileID: 819070590}
+--- !u!1 &899107322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 899107323}
+  - component: {fileID: 899107324}
+  m_Layer: 0
+  m_Name: VisualsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &899107323
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 902850782}
+  m_GameObject: {fileID: 899107322}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.142, y: 0.416, z: -0.127}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 58547742}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &899107324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899107322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e58aea5f860550044b33bc94ec2e2f7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VisualsManager
 --- !u!1 &984510977
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,7 +1073,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1289668008}
   - component: {fileID: 1289668010}
-  - component: {fileID: 1289668009}
   m_Layer: 0
   m_Name: CatManagers
   m_TagString: Untagged
@@ -888,19 +1095,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 58547742}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1289668009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1289668006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8607f1e9c7171b4db8c03af9d0495b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CatInteractor
-  catInteractionDetector: {fileID: 1289668010}
 --- !u!114 &1289668010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -913,8 +1107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee963988837765f40b2f133c1eb4ae36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CatInteractionHandler
-  moveCursorAction: {fileID: 0}
-  interactAction: {fileID: 0}
+  moveCursorAction: {fileID: 1591316419}
+  interactAction: {fileID: 460195001}
 --- !u!1 &1291486345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,6 +1290,20 @@ MonoBehaviour:
   zoomSmoothing: 0.15
   minZoom: -2
   maxZoom: -1.25
+--- !u!114 &1591316419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Player/MoveCursor
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_ActionId: 58d7163f-acc5-4427-a019-5f7f316b43aa
 --- !u!1 &1599527527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,6 +1522,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3357101676966177676, guid: b4cf846a921643e428914ee7781557a0, type: 3}
+      propertyPath: zones
+      value: 
+      objectReference: {fileID: 341908762}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1688,6 +1900,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477787596}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1872840930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1872840931}
+  m_Layer: 0
+  m_Name: CatStuff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1872840931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872840930}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 341908761}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1944179080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,6 +2076,104 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &2016415779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2016415780}
+  - component: {fileID: 2016415783}
+  - component: {fileID: 2016415782}
+  - component: {fileID: 2016415781}
+  m_Layer: 6
+  m_Name: LowerBack
+  m_TagString: Cat
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2016415780
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016415779}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.69347286, y: -0, z: -0, w: 0.7204828}
+  m_LocalPosition: {x: 0, y: 0.313, z: 0.061}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 341908761}
+  m_LocalEulerAnglesHint: {x: 87.811, y: 0, z: 0}
+--- !u!114 &2016415781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016415779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
+  m_Material: {fileID: 2100000, guid: b8aa9e35baacef94585af62fe868ec97, type: 2}
+  m_DrawDistance: 4.9
+  m_FadeScale: 1
+  m_StartAngleFade: 180
+  m_EndAngleFade: 180
+  m_UVScale: {x: 0.96944493, y: 0.9886795}
+  m_UVBias: {x: -0.064576805, y: 0.0000003765274}
+  m_RenderingLayerMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ScaleMode: 0
+  m_Offset: {x: -0.0063499734, y: 0.03999999, z: -0.06961317}
+  m_Size: {x: 0.24665807, y: 0.18096584, z: 0.15077367}
+  m_FadeFactor: 1
+  version: 1
+  m_DecalLayerMask: 1
+--- !u!136 &2016415782
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016415779}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1145752
+  m_Height: 0.269155
+  m_Direction: 1
+  m_Center: {x: 0.000038519276, y: 0.00069578114, z: 0.000017452161}
+--- !u!114 &2016415783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016415779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ecfc430be77814c977b9eee0682167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CatZone
+  DecalProjector: {fileID: 2016415781}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1843,5 +2185,5 @@ SceneRoots:
   - {fileID: 1758823350}
   - {fileID: 984510980}
   - {fileID: 58547742}
-  - {fileID: 902850784}
   - {fileID: 1613843683}
+  - {fileID: 1872840931}
