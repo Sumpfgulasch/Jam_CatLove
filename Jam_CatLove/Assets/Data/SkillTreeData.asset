@@ -13,7 +13,36 @@ MonoBehaviour:
   m_Name: SkillTreeData
   m_EditorClassIdentifier: Assembly-CSharp::UI.SkillTreeData
   treeName: Skill Tree
-  skills: []
+  skills:
+  - id: _CatLove1
+    skillName: Cat Love
+    description: Your cats love your touches. Gain more love from now on.
+    icon: {fileID: 0}
+    nodeColor: {r: 1, g: 1, b: 1, a: 1}
+    levels:
+    - requiredPoints: 1
+      effect: {fileID: 11400000, guid: b7689213f98c1a641a6e1122fbd730b9, type: 2}
+      levelDescription: 
+    prerequisiteIds: []
+    position: {x: 0, y: 0}
+    isUnlocked: 1
+    currentLevel: 0
+    tier: 0
+  - id: _FreshSheets
+    skillName: Freshly washed sheets
+    description: "Place a freshly covered pillow below your cat. \nAuto-generates
+      100 love per second."
+    icon: {fileID: 0}
+    nodeColor: {r: 1, g: 1, b: 1, a: 1}
+    levels:
+    - requiredPoints: 1
+      effect: {fileID: 0}
+      levelDescription: 
+    prerequisiteIds: []
+    position: {x: 0, y: 200}
+    isUnlocked: 0
+    currentLevel: 0
+    tier: 0
   nodeSpacing: 150
   tierSpacing: 200
   connectionLineColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.8}

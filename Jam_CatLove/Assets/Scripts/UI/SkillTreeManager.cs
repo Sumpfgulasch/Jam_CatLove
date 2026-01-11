@@ -212,8 +212,11 @@ namespace UI
             var skill = treeData.GetSkillById(skillId);
             if (skill == null || !CanUnlockSkill(skillId)) return;
             
+            // Get the required points for the next level
+            int requiredPoints = skill.GetRequiredPointsForNextLevel();
+            
             // Spend points
-            gameplayManager.heartsCount -= skill.requiredPoints;
+            gameplayManager.heartsCount -= requiredPoints;
             
             // Unlock the skill
             skill.currentLevel++;
@@ -221,6 +224,14 @@ namespace UI
             {
                 skill.isUnlocked = true;
                 _unlockedSkills.Add(skillId);
+            }
+            
+            // Apply the effect for this level
+            var levelData = skill.GetCurrentLevel();
+            if (levelData != null && levelData.effect != null)
+            {
+                levelData.effect.Apply(skill.currentLevel);
+                Debug.Log($"Applied effect for {skill.skillName} level {skill.currentLevel}");
             }
             
             // Update visuals
@@ -265,12 +276,22 @@ namespace UI
             
             if (tooltipRequirements != null)
             {
-                string reqText = $"Cost: {skill.requiredPoints} point(s)\n";
-                reqText += $"Level: {skill.currentLevel}/{skill.maxLevel}\n";
+                string reqText = $"Level: {skill.currentLevel}/{skill.maxLevel}\n";
+                
+                // Show cost for next level if not maxed
+                if (skill.currentLevel < skill.maxLevel)
+                {
+                    int nextLevelCost = skill.GetRequiredPointsForNextLevel();
+                    reqText += $"Next Level Cost: {nextLevelCost} point(s)\n";
+                }
+                else
+                {
+                    reqText += "MAX LEVEL\n";
+                }
                 
                 if (skill.HasPrerequisites())
                 {
-                    reqText += "Prerequisites:\n";
+                    reqText += "\nPrerequisites:\n";
                     foreach (var prereqId in skill.prerequisiteIds)
                     {
                         var prereq = treeData.GetSkillById(prereqId);
@@ -319,17 +340,30 @@ namespace UI
         {
             foreach (var skill in treeData.skills)
             {
+                // Remove all effects before resetting
+                for (int i = skill.currentLevel; i > 0; i--)
+                {
+                    var levelData = skill.GetLevel(i - 1);
+                    if (levelData != null && levelData.effect != null)
+                    {
+                        levelData.effect.Remove(i);
+                    }
+                }
+                
                 skill.isUnlocked = false;
                 skill.currentLevel = 0;
             }
             
             _unlockedSkills.Clear();
-            //gameplayManager.heartsCount = 100; // Reset to default
+            
+            // Unlock first skill
+            treeData.skills[0].isUnlocked = true;
+            _unlockedSkills.Add(treeData.skills[0].id);
             
             UpdateAllNodeVisuals();
             UpdateSkillPointsDisplay();
             
-            Debug.Log("Skill tree reset!");
+            Debug.Log("Skill tree reset");
         }
     }
 }

@@ -328,22 +328,30 @@ namespace Editor
             {
                 id = "skill_001",
                 skillName = "Basic Attack",
-                description = "Increases basic attack damage by 10%",
+                description = "Increases basic attack damage by 10% per level",
                 position = new Vector2(-200, 200),
                 tier = 0,
-                requiredPoints = 1,
-                maxLevel = 3
+                levels = new SkillLevel[]
+                {
+                    new SkillLevel { requiredPoints = 1, levelDescription = "Level 1: +10% damage" },
+                    new SkillLevel { requiredPoints = 1, levelDescription = "Level 2: +20% damage" },
+                    new SkillLevel { requiredPoints = 2, levelDescription = "Level 3: +30% damage" }
+                }
             });
             
             data.skills.Add(new SkillNode
             {
                 id = "skill_002",
                 skillName = "Health Boost",
-                description = "Increases maximum health by 20",
+                description = "Increases maximum health",
                 position = new Vector2(200, 200),
                 tier = 0,
-                requiredPoints = 1,
-                maxLevel = 3
+                levels = new SkillLevel[]
+                {
+                    new SkillLevel { requiredPoints = 1, levelDescription = "Level 1: +20 health" },
+                    new SkillLevel { requiredPoints = 1, levelDescription = "Level 2: +40 health" },
+                    new SkillLevel { requiredPoints = 2, levelDescription = "Level 3: +60 health" }
+                }
             });
             
             // Tier 1
@@ -354,8 +362,10 @@ namespace Editor
                 description = "Unlocks a powerful special attack",
                 position = new Vector2(-200, 0),
                 tier = 1,
-                requiredPoints = 2,
-                maxLevel = 1,
+                levels = new SkillLevel[]
+                {
+                    new SkillLevel { requiredPoints = 2, levelDescription = "Unlocks Power Strike ability" }
+                },
                 prerequisiteIds = new System.Collections.Generic.List<string> { "skill_001" }
             });
             
@@ -363,11 +373,14 @@ namespace Editor
             {
                 id = "skill_004",
                 skillName = "Defense Up",
-                description = "Reduces damage taken by 15%",
+                description = "Reduces damage taken",
                 position = new Vector2(0, 0),
                 tier = 1,
-                requiredPoints = 2,
-                maxLevel = 2,
+                levels = new SkillLevel[]
+                {
+                    new SkillLevel { requiredPoints = 2, levelDescription = "Level 1: -10% damage taken" },
+                    new SkillLevel { requiredPoints = 2, levelDescription = "Level 2: -20% damage taken" }
+                },
                 prerequisiteIds = new System.Collections.Generic.List<string> { "skill_001", "skill_002" }
             });
             
@@ -378,8 +391,10 @@ namespace Editor
                 description = "Slowly regenerate health over time",
                 position = new Vector2(200, 0),
                 tier = 1,
-                requiredPoints = 2,
-                maxLevel = 1,
+                levels = new SkillLevel[]
+                {
+                    new SkillLevel { requiredPoints = 2, levelDescription = "Regenerate 1 HP per second" }
+                },
                 prerequisiteIds = new System.Collections.Generic.List<string> { "skill_002" }
             });
             
@@ -391,8 +406,10 @@ namespace Editor
                 description = "Unlocks the ultimate ability",
                 position = new Vector2(-100, -200),
                 tier = 2,
-                requiredPoints = 3,
-                maxLevel = 1,
+                levels = new SkillLevel[]
+                {
+                    new SkillLevel { requiredPoints = 3, levelDescription = "Unlocks devastating ultimate attack" }
+                },
                 prerequisiteIds = new System.Collections.Generic.List<string> { "skill_003", "skill_004" },
                 nodeColor = new Color(1f, 0.8f, 0.2f, 1f)
             });
@@ -404,8 +421,10 @@ namespace Editor
                 description = "Greatly enhances healing abilities",
                 position = new Vector2(100, -200),
                 tier = 2,
-                requiredPoints = 3,
-                maxLevel = 1,
+                levels = new SkillLevel[]
+                {
+                    new SkillLevel { requiredPoints = 3, levelDescription = "Doubles all healing effects" }
+                },
                 prerequisiteIds = new System.Collections.Generic.List<string> { "skill_004", "skill_005" },
                 nodeColor = new Color(0.2f, 1f, 0.2f, 1f)
             });
