@@ -50,6 +50,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "967bcc2f-794d-48a6-81dd-470f4b0f4289",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -187,17 +196,6 @@
                 },
                 {
                     "name": "",
-                    "id": "7777c7a2-5752-458f-ac1a-169f87f6b310",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "ToggleSkillTree",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "d1bf5fe2-d405-4d3c-b8dc-0da2cfa2d92b",
                     "path": "<Keyboard>/tab",
                     "interactions": "",
@@ -226,6 +224,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ToggleSkillTree",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "deb1c40c-93e9-4bc9-98e9-bb5f9ea50028",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

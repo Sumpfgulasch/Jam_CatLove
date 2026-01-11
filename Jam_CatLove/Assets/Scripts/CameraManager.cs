@@ -71,6 +71,9 @@ public class CameraManager : MonoBehaviour
 
     private void Update()
     {
+        if (UIManager.Instance.IsSkillTreeOpen) 
+            return;
+        
         HandleRotation();
         HandleZoom();
     }

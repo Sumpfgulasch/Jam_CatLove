@@ -106,7 +106,7 @@ namespace Editor
             manager.tooltipTitle = tooltip.transform.Find("Title").GetComponent<TextMeshProUGUI>();
             manager.tooltipDescription = tooltip.transform.Find("Description").GetComponent<TextMeshProUGUI>();
             manager.tooltipRequirements = tooltip.transform.Find("Requirements").GetComponent<TextMeshProUGUI>();
-            manager.skillPointsText = header.transform.Find("SkillPointsText").GetComponent<TextMeshProUGUI>();
+            //manager.skillPointsText = header.transform.Find("SkillPointsText").GetComponent<TextMeshProUGUI>();
             manager.skillNodePrefab = nodePrefab;
             manager.connectionLinePrefab = linePrefab;
             

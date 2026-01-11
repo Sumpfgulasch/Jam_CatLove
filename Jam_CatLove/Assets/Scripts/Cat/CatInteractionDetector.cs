@@ -46,6 +46,9 @@ public class CatInteractionDetector : MonoBehaviour
 
     private void OnMoveCursor(InputAction.CallbackContext context)
     {
+        if (UIManager.Instance.IsSkillTreeOpen) 
+            return;
+        
         cursorPosition = context.ReadValue<Vector2>(); // in pixels
 
         // // Check hits
@@ -94,6 +97,9 @@ public class CatInteractionDetector : MonoBehaviour
 
     private void OnInteract(InputAction.CallbackContext context)
     {
+        if (UIManager.Instance.IsSkillTreeOpen) 
+            return;
+        
         if (context.started)
         {
             isInteractionButtonHold = true;

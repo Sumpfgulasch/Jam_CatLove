@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private float popOvershoot = 1.2f;
     
     [Header("Hearts Bar")]
-    [SerializeField] private TextMeshProUGUI heartsCountText;
+    [SerializeField] public TextMeshProUGUI heartsCountText;
     [SerializeField] private RectTransform heartsCounterImage; // Top left corner position
 
     [Header("Skill Tree")] 
@@ -31,6 +31,8 @@ public class UIManager : MonoBehaviour
     public InputActionReference toggleSkillTree;
 
     private RectTransform canvasRectangle;
+    
+    public bool IsSkillTreeOpen => skillTreePanel.activeSelf;
     
     private void Awake()
     {
@@ -75,11 +77,6 @@ public class UIManager : MonoBehaviour
     private void ToggleSkillTree()
     {
         skillTreePanel.SetActive(!skillTreePanel.activeSelf);
-    }
-    
-    public void SetHeartsCount(int count)
-    {
-        heartsCountText.text = count.ToString();
     }
     
     public void SpawnCatHearts(Vector2 screenPoint, int count = 1)
@@ -143,7 +140,10 @@ public class UIManager : MonoBehaviour
             heartRect.DOScale(0.7f, moveDuration * 0.5f)
                 .SetDelay(moveDuration * 0.5f)
         );
-        heartSequence.AppendCallback(() => heartsCountText.text = (int.Parse(heartsCountText.text) + 1).ToString());
+        heartSequence.AppendCallback(() =>
+        {
+            heartsCountText.text = (int.Parse(heartsCountText.text) + 1).ToString();
+        });
 
         // Destroy heart after animation completes
         heartSequence.OnComplete(() => Destroy(heart));

@@ -17,14 +17,11 @@ namespace UI
         public TextMeshProUGUI tooltipTitle;
         public TextMeshProUGUI tooltipDescription;
         public TextMeshProUGUI tooltipRequirements;
-        public TextMeshProUGUI skillPointsText;
+        public GameplayManager gameplayManager;
         
         [Header("Prefabs")]
         public GameObject skillNodePrefab;
         public GameObject connectionLinePrefab;
-        
-        [Header("Player Progress")]
-        public int availableSkillPoints = 10;
         
         private Dictionary<string, SkillNodeUI> _skillNodeUIs = new Dictionary<string, SkillNodeUI>();
         private HashSet<string> _unlockedSkills = new HashSet<string>();
@@ -35,13 +32,12 @@ namespace UI
             if (treeData != null)
             {
                 BuildSkillTree();
+                ResetSkillTree();
             }
             else
             {
                 Debug.LogWarning("SkillTreeData is not assigned to SkillTreeManager!");
             }
-            
-            UpdateSkillPointsDisplay();
             
             if (tooltipPanel != null)
             {
@@ -205,7 +201,7 @@ namespace UI
             var skill = treeData.GetSkillById(skillId);
             if (skill == null) return false;
             
-            return skill.CanUnlock(availableSkillPoints, _unlockedSkills);
+            return skill.CanUnlock(gameplayManager.heartsCount, _unlockedSkills);
         }
         
         /// <summary>
@@ -217,7 +213,7 @@ namespace UI
             if (skill == null || !CanUnlockSkill(skillId)) return;
             
             // Spend points
-            availableSkillPoints -= skill.requiredPoints;
+            gameplayManager.heartsCount -= skill.requiredPoints;
             
             // Unlock the skill
             skill.currentLevel++;
@@ -313,10 +309,7 @@ namespace UI
         /// </summary>
         private void UpdateSkillPointsDisplay()
         {
-            if (skillPointsText != null)
-            {
-                skillPointsText.text = $"Skill Points: {availableSkillPoints}";
-            }
+            UIManager.Instance.heartsCountText.text = gameplayManager.heartsCount.ToString();
         }
         
         /// <summary>
@@ -331,7 +324,7 @@ namespace UI
             }
             
             _unlockedSkills.Clear();
-            availableSkillPoints = 10; // Reset to default
+            //gameplayManager.heartsCount = 100; // Reset to default
             
             UpdateAllNodeVisuals();
             UpdateSkillPointsDisplay();

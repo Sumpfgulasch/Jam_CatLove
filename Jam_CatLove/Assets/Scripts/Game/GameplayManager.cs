@@ -6,6 +6,7 @@ using UnityEngine.Rendering.Universal;
 
 public class GameplayManager : MonoBehaviour
 {
+    public static GameplayManager Instance;
     [SerializeField] private Cat cat;
     [SerializeField] private CatInteractionDetector interactionDetector;
     [SerializeField] private CatVisualSettings catVisualSettings;
@@ -16,8 +17,19 @@ public class GameplayManager : MonoBehaviour
     private float lastZoneFinishTime;
     private List<CatZone> activeZones = new();
 
+    public int heartsCount { get; set; } = 0;
+
     void Start()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+        
         interactionDetector.OnCatPetted += OnCatPetted;
 
         cat.Init(catVisualSettings);
@@ -58,7 +70,7 @@ public class GameplayManager : MonoBehaviour
         // animation
         cat.SetAnimationHappiness(catZone.CurrentTargetPercentage);
         
-        Debug.Log($"currentPetting: {catZone.CurrentPetting}, speed: {speed}, speed multiplier: {optimalSpeedMultiplier}");
+        //Debug.Log($"currentPetting: {catZone.CurrentPetting}, speed: {speed}, speed multiplier: {optimalSpeedMultiplier}");
 
         // finish zone?
         if (catZone.IsTargetReached)
@@ -74,20 +86,21 @@ public class GameplayManager : MonoBehaviour
             return;
         }
         
-        var heartsCount = Mathf.RoundToInt(pettingSinceLastHeart / gameplaySettings.requiredPettingPerHeart);
-
+        var hearts = Mathf.RoundToInt(pettingSinceLastHeart / gameplaySettings.requiredPettingPerHeart);
         var position = cursorPosition + new Vector2(0, Screen.height * catVisualSettings.heartSpawnYOffset);
-        UIManager.Instance.SpawnCatHearts(position, heartsCount);
+        
+        UIManager.Instance.SpawnCatHearts(position, hearts);
+        
+        heartsCount += hearts;
         lastHeartSpawn = Time.time;
         pettingSinceLastHeart = 0;
-
-        // todo: sound
     }
 
     private void FinishZone(CatZone zone, Vector2 cursorPosition)
     {
         var position = cursorPosition + new Vector2(0, Screen.height * catVisualSettings.heartSpawnYOffset);
-        UIManager.Instance.SpawnCatHearts(position, 30);
+        heartsCount += gameplaySettings.heartsPerFinishedZone;
+        UIManager.Instance.SpawnCatHearts(position, gameplaySettings.heartsPerFinishedZone);
         zone.Reset();
         zone.Enable(false);
         activeZones.Remove(zone);
