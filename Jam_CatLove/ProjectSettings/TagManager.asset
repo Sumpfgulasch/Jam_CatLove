@@ -15,14 +15,14 @@ TagManager:
   - CatLowerBack
   - CatBackLeftLeg
   - CatFrontRightPaw
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - CatBodyLeftSide
+  - CatEntireBack
+  - CatBackLeftPaw
+  - CatLeftCheek
+  - CatTopHead
+  - CatChin
+  - CatTailStart
+  - CatFrontLeftPaw
   - 
   - 
   - 
