@@ -18,3 +18,4 @@ MonoBehaviour:
   zonePulseStartMaxOpacity: 0.3
   zonePulseEndMinOpacity: 0.05
   zonePulseEndMaxOpacity: 0.7
+  heartSpawnYOffset: 0.08

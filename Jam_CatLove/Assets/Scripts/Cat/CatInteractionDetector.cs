@@ -58,6 +58,7 @@ public class CatInteractionDetector : MonoBehaviour
         // Invoke event
         if (isInteractionButtonHold)
         {
+            // speed unit: screen diagonals per second
             var speed = (((cursorPosition - previousCursorPosition) / Time.deltaTime).magnitude) / screenDiagonal;
             OnCatPetted?.Invoke(hitCatLayer, speed, cursorPosition);
             //Debug.Log($"layer: {hitCatLayer}, speed: {speed}");
@@ -89,7 +90,7 @@ public class CatInteractionDetector : MonoBehaviour
             isInteractionButtonHold = true;
             if (isCatHover)
             {
-                OnCatPetted?.Invoke(hitCatLayer, 1, cursorPosition); // 1 arbitrary
+                OnCatPetted?.Invoke(hitCatLayer, 0.3f, cursorPosition); // speed arbitrary
             }
         }
         else if (context.canceled)
