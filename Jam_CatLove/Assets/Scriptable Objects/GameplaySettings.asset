@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: GameplaySettings
   m_EditorClassIdentifier: Assembly-CSharp::GameplaySettings
   requiredPettingPerHeart: 0.2
-  targetPettingPerZone: 200
-  defaultPettingCount: 1
-  optimalPettingSpeed: 0.2
-  optimalPettingSpeedMultiplier: 20
+  targetPettingPerZone: 10
+  optimalPettingSpeed: 0.3
   pettingSpeedLowerTolerance: 0.01
-  pettingSpeedUpperTolerance: 0.4
+  pettingSpeedUpperTolerance: 0.6
+  optimalPettingSpeedMultiplier: 20
   heartsMinSpawnInterval: 0.1
   multipleHeartsMinSpawnInterval: 0.1
   zoneActivationDelay: 1

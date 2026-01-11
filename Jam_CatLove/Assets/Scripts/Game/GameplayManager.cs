@@ -46,11 +46,16 @@ public class GameplayManager : MonoBehaviour
         }
 
         // update progress
-        var optimalSpeedMultiplier = MathUtility.GetSpeedMultiplier(speed, gameplaySettings.optimalPettingSpeed,
-            gameplaySettings.pettingSpeedLowerTolerance, gameplaySettings.pettingSpeedUpperTolerance, gameplaySettings.optimalPettingSpeedMultiplier);
-        pettingSinceLastHeart += (speed * optimalSpeedMultiplier * Time.deltaTime);
-        //pettingSinceLastHeart += (gameplaySettings.defaultPettingCount * optimalSpeedMultiplier * Time.deltaTime);
-        catZone.CurrentPetting += pettingSinceLastHeart;
+        var optimalSpeedMultiplier = MathUtility.GetSpeedMultiplier(speed, 
+            gameplaySettings.optimalPettingSpeed, 
+            gameplaySettings.pettingSpeedLowerTolerance, 
+            gameplaySettings.pettingSpeedUpperTolerance, 
+            gameplaySettings.optimalPettingSpeedMultiplier);
+        var currentPetting = (speed * optimalSpeedMultiplier * Time.deltaTime);
+        pettingSinceLastHeart += currentPetting;
+        catZone.CurrentPetting += currentPetting;
+        
+        // animation
         cat.SetAnimationHappiness(catZone.CurrentTargetPercentage);
         
         Debug.Log($"currentPetting: {catZone.CurrentPetting}, speed: {speed}, speed multiplier: {optimalSpeedMultiplier}");
