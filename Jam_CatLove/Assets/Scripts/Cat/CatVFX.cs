@@ -8,8 +8,10 @@ public class CatVFX
     // pulse settings
     private float pulseStartFrequency;
     private float pulseEndFrequency;
-    private float minPulseOpacity;
-    private float maxPulseOpacity;
+    private float pulseStartMinOpacity;
+    private float pulseStartMaxOpacity;
+    private float pulseEndMinOpacity;
+    private float pulseEndMaxOpacity;
     
     private int pulseShaderOpacityID = Shader.PropertyToID("_Opacity");
 
@@ -17,8 +19,10 @@ public class CatVFX
     {
         pulseStartFrequency = visualSettings.zonePulseStartFrequency;
         pulseEndFrequency = visualSettings.zonePulseEndFrequency;
-        minPulseOpacity = visualSettings.zoneMinPulseOpacity;
-        maxPulseOpacity = visualSettings.zoneMaxPulseOpacity;
+        pulseStartMinOpacity = visualSettings.zonePulseStartMinOpacity;
+        pulseStartMaxOpacity = visualSettings.zonePulseStartMaxOpacity;
+        pulseEndMinOpacity = visualSettings.zonePulseEndMinOpacity;
+        pulseEndMaxOpacity = visualSettings.zonePulseEndMaxOpacity;
     }
     
     public void Tick(List<CatZone> activeZones)
@@ -29,24 +33,10 @@ public class CatVFX
             var pulseSpeed = Mathf.Lerp(pulseStartFrequency, pulseEndFrequency, zone.CurrentTargetPercentage);
             zone.CurrentPulseTime += Time.deltaTime * pulseSpeed;
             
-            float opacity = Mathf.Lerp(minPulseOpacity, maxPulseOpacity, (Mathf.Sin(zone.CurrentPulseTime * Mathf.PI * 2f) + 1f) / 2f);
+            var minOpacity = Mathf.Lerp(pulseStartMinOpacity, pulseEndMinOpacity, zone.CurrentTargetPercentage);
+            var maxOpacity = Mathf.Lerp(pulseStartMaxOpacity, pulseEndMaxOpacity, zone.CurrentTargetPercentage);
+            var opacity = Mathf.Lerp(minOpacity, maxOpacity, (Mathf.Sin(zone.CurrentPulseTime * Mathf.PI * 2f) + 1f) / 2f);
             zone.DecalProjector.material.SetFloat(pulseShaderOpacityID, opacity);
         }
-    }
-    
-    public void StopZonePulse(string zone)
-    {
-        
-    }
-    
-    // todo
-    public void HeartSpawn(Vector2 position)
-    {
-        
-    }
-    
-    public void SetZonePulseSpeed(string zone, float speed)
-    {
-        
     }
 }

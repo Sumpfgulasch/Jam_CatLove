@@ -6,10 +6,12 @@ public class CatZones : MonoBehaviour
     
     public void Init()
     {
-        Zones = GetComponentsInChildren<CatZone>();
+        Zones = GetComponentsInChildren<CatZone>(true);
+
         foreach (var catZone in Zones)
         {
             catZone.Init();
+            catZone.gameObject.SetActive(false);
         }
     }
 }

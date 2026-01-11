@@ -208,8 +208,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.12, y: 0.37, z: 0.12}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.12, y: 0.43003196, z: 0.11999999}
+  m_Center: {x: 0, y: -0.013784439, z: -0.049999997}
 --- !u!114 &75913041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,7 +269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &106256189
 Transform:
   m_ObjectHideFlags: 0
@@ -461,7 +461,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &140110388
 Transform:
   m_ObjectHideFlags: 0
@@ -557,7 +557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &191517208
 Transform:
   m_ObjectHideFlags: 0
@@ -653,7 +653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &243919162
 Transform:
   m_ObjectHideFlags: 0
@@ -1174,7 +1174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &576902718
 Transform:
   m_ObjectHideFlags: 0
@@ -1665,7 +1665,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1120616706
 Transform:
   m_ObjectHideFlags: 0
@@ -1704,8 +1704,8 @@ MonoBehaviour:
     serializedVersion: 0
     m_Bits: 1
   m_ScaleMode: 0
-  m_Offset: {x: 0.004672457, y: -0.013596339, z: -0.06423092}
-  m_Size: {x: 0.76, y: 0.13, z: 0.14500278}
+  m_Offset: {x: 0.004672457, y: -0.007321106, z: -0.06423092}
+  m_Size: {x: 0.76, y: 0.07, z: 0.14500278}
   m_FadeFactor: 1
   version: 1
   m_DecalLayerMask: 1
@@ -1728,8 +1728,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.35, y: 0.1, z: 0.06924732}
-  m_Center: {x: -0.008391134, y: -0.024829023, z: -0.03}
+  m_Size: {x: 0.35, y: 0.06806331, z: 0.06924732}
+  m_Center: {x: -0.008391127, y: -0.00886059, z: -0.030000001}
 --- !u!114 &1120616709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1963,13 +1963,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraManager
   rotationSensitivity: 0.5
   rotationSmoothing: 0.15
-  minVerticalAngle: 10
+  minVerticalAngle: 0
   maxVerticalAngle: 90
   targetCamera: {fileID: 1632358252}
   zoomSensitivity: 0.1
   zoomSmoothing: 0.15
   minZoom: -2
-  maxZoom: -1.25
+  maxZoom: -1.1
 --- !u!114 &1591316419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2872,7 +2872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2060544613
 Transform:
   m_ObjectHideFlags: 0

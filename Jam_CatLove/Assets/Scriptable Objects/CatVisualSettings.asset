@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 711d1c4456d3fdb4a9bbdcb70ae0b772, type: 3}
   m_Name: CatVisualSettings
   m_EditorClassIdentifier: Assembly-CSharp::CatVisualSettings
+  zonePulseStartFrequency: 1.8
+  zonePulseEndFrequency: 10
+  zonePulseStartMinOpacity: 0.05
+  zonePulseStartMaxOpacity: 0.3
+  zonePulseEndMinOpacity: 0.05
+  zonePulseEndMaxOpacity: 0.7
