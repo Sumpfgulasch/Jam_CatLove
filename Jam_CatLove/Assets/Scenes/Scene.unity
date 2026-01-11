@@ -1404,6 +1404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61592500d0664d647b0baca941e801b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  gameplaySettings: {fileID: 11400000, guid: 52f2199fbc2153b45a25748dd675bdda, type: 2}
   catHeartPrefab: {fileID: 1637053342802132763, guid: 2510fac1f5666d24ca87957894e784f7, type: 3}
   canvas: {fileID: 1758823349}
   popDuration: 0.3

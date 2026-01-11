@@ -49,15 +49,16 @@ public class GameplayManager : MonoBehaviour
         var optimalSpeedMultiplier = MathUtility.GetSpeedMultiplier(speed, gameplaySettings.optimalPettingSpeed,
             gameplaySettings.pettingSpeedLowerTolerance, gameplaySettings.pettingSpeedUpperTolerance, gameplaySettings.optimalPettingSpeedMultiplier);
         pettingSinceLastHeart += (speed * optimalSpeedMultiplier * Time.deltaTime);
+        //pettingSinceLastHeart += (gameplaySettings.defaultPettingCount * optimalSpeedMultiplier * Time.deltaTime);
         catZone.CurrentPetting += pettingSinceLastHeart;
         cat.SetAnimationHappiness(catZone.CurrentTargetPercentage);
         
-        Debug.Log($"catZone.CurrentPetting: {catZone.CurrentPetting}, speed: {speed}, optimalSpeedMultiplier: {optimalSpeedMultiplier}, optimalSpeed: {gameplaySettings.optimalPettingSpeed}");
+        Debug.Log($"currentPetting: {catZone.CurrentPetting}, speed: {speed}, speed multiplier: {optimalSpeedMultiplier}");
 
         // finish zone?
         if (catZone.IsTargetReached)
         {
-            FinishZone(catZone);
+            FinishZone(catZone, cursorPosition);
             StartCoroutine(ActivateZoneDelayed(cat.GetRandomZone()));
             return;
         }
@@ -67,17 +68,21 @@ public class GameplayManager : MonoBehaviour
         {
             return;
         }
+        
+        var heartsCount = Mathf.RoundToInt(pettingSinceLastHeart / gameplaySettings.requiredPettingPerHeart);
 
         var position = cursorPosition + new Vector2(0, Screen.height * catVisualSettings.heartSpawnYOffset);
-        UIManager.Instance.SpawnCatHeart(position);
+        UIManager.Instance.SpawnCatHearts(position, heartsCount);
         lastHeartSpawn = Time.time;
         pettingSinceLastHeart = 0;
 
         // todo: sound
     }
 
-    private void FinishZone(CatZone zone)
+    private void FinishZone(CatZone zone, Vector2 cursorPosition)
     {
+        var position = cursorPosition + new Vector2(0, Screen.height * catVisualSettings.heartSpawnYOffset);
+        UIManager.Instance.SpawnCatHearts(position, 30);
         zone.Reset();
         zone.Enable(false);
         activeZones.Remove(zone);

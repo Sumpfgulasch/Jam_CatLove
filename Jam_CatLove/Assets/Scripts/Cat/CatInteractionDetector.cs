@@ -60,7 +60,16 @@ public class CatInteractionDetector : MonoBehaviour
         {
             // speed unit: screen diagonals per second
             var speed = (((cursorPosition - previousCursorPosition) / Time.deltaTime).magnitude) / screenDiagonal;
+            
             OnCatPetted?.Invoke(hitCatLayer, speed, cursorPosition);
+            
+            // var pixelDisplacement = (cursorPosition - previousCursorPosition).magnitude;
+            // var pixelsPerSecond = pixelDisplacement / Time.deltaTime;
+            // var speedDebug = pixelsPerSecond / screenDiagonal;
+            //
+            // Debug.Log($"Pixels moved: {pixelDisplacement}, Time.deltaTime: {Time.deltaTime}, Pixels/sec: {pixelsPerSecond}, ScreenDiagonal: {screenDiagonal}, Speed: {speedDebug}");
+            
+            
             //Debug.Log($"layer: {hitCatLayer}, speed: {speed}");
         }
 

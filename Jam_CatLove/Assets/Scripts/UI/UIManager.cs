@@ -6,6 +6,9 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
     
+    [Header("Settings")]
+    public GameplaySettings gameplaySettings;
+    
     [Header("Heart Spawn Settings")]
     [SerializeField] private GameObject catHeartPrefab;
     [SerializeField] private Canvas canvas;
@@ -51,7 +54,17 @@ public class UIManager : MonoBehaviour
         heartsCountText.text = count.ToString();
     }
     
-    public void SpawnCatHeart(Vector2 screenPoint)
+    public void SpawnCatHearts(Vector2 screenPoint, int count = 1)
+    {
+        // Spawn multiple hearts with a slight delay between each
+        for (int i = 0; i < count; i++)
+        {
+            float spawnDelay = i * gameplaySettings.multipleHeartsMinSpawnInterval;
+            SpawnSingleHeart(screenPoint, spawnDelay);
+        }
+    }
+    
+    private void SpawnSingleHeart(Vector2 screenPoint, float initialDelay)
     {
         // Convert the cat's heart spawn position to canvas space
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
@@ -72,6 +85,12 @@ public class UIManager : MonoBehaviour
         // Create animation sequence
         Sequence heartSequence = DOTween.Sequence();
         
+        // Add initial delay if spawning multiple hearts
+        if (initialDelay > 0)
+        {
+            heartSequence.AppendInterval(initialDelay);
+        }
+        
         // 1. Pop out with overshoot
         heartSequence.Append(
             heartRect.DOScale(1f, popDuration).SetEase(Ease.OutBack, popOvershoot)
@@ -82,8 +101,8 @@ public class UIManager : MonoBehaviour
         var targetScreenPosition = RectTransformUtility.WorldToScreenPoint(canvas.worldCamera, targetWorldPosition);
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             canvasRectangle,
-            targetScreenPosition, 
-            canvas.worldCamera, 
+            targetScreenPosition,
+            canvas.worldCamera,
             out var targetLocalCanvasPosition);
         
         heartSequence.Append(
