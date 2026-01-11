@@ -1,6 +1,9 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
 
 public class UIManager : MonoBehaviour
 {
@@ -22,6 +25,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI heartsCountText;
     [SerializeField] private RectTransform heartsCounterImage; // Top left corner position
 
+    [Header("Skill Tree")] 
+    [SerializeField] private Button skillTreeButton;
+    [SerializeField] private GameObject skillTreePanel;
+    public InputActionReference toggleSkillTree;
+
     private RectTransform canvasRectangle;
     
     private void Awake()
@@ -35,6 +43,21 @@ public class UIManager : MonoBehaviour
         
         Instance = this;
         canvasRectangle = canvas.GetComponent<RectTransform>();
+        
+        skillTreeButton.onClick.AddListener(ToggleSkillTree);
+        
+    }
+    
+    private void OnEnable()
+    {
+        toggleSkillTree.action.Enable();
+        toggleSkillTree.action.performed += _ => ToggleSkillTree();
+    }
+    
+    private void OnDisable()
+    {
+        toggleSkillTree.action.Disable();
+        toggleSkillTree.action.performed -= _ => ToggleSkillTree();
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -47,6 +70,11 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void ToggleSkillTree()
+    {
+        skillTreePanel.SetActive(!skillTreePanel.activeSelf);
     }
     
     public void SetHeartsCount(int count)
