@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4fb589684c06d439c7b48be09bf13f, type: 3}
+  m_Name: SkillTreeData
+  m_EditorClassIdentifier: Assembly-CSharp::UI.SkillTreeData
+  treeName: Skill Tree
+  skills: []
+  nodeSpacing: 150
+  tierSpacing: 200
+  connectionLineColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.8}
+  connectionLineWidth: 3
+  defaultSkillIcon: {fileID: 0}
+  lockedOverlayIcon: {fileID: 0}

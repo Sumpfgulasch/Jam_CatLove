@@ -293,8 +293,8 @@ MonoBehaviour:
   button: {fileID: 2888848866372759654}
   lockedColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
   unlockedColor: {r: 1, g: 1, b: 1, a: 1}
-  availableColor: {r: 1, g: 1, b: 0.5, a: 1}
-  maxLevelColor: {r: 0.5, g: 1, b: 0.5, a: 1}
+  availableColor: {r: 1, g: 1, b: 1, a: 1}
+  maxLevelColor: {r: 0.56078434, g: 0.7647059, b: 0.5529412, a: 1}
   hoverScale: {r: 1.1, g: 1.1, b: 1.1, a: 1}
   hoverScaleFactor: 1.1
   scaleAnimationSpeed: 10
@@ -372,8 +372,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2

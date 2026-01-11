@@ -82,7 +82,7 @@ MonoBehaviour:
     skillName: Ultimate Power
     description: Unlocks the ultimate ability
     icon: {fileID: 0}
-    nodeColor: {r: 1, g: 0.8, b: 0.2, a: 1}
+    nodeColor: {r: 1, g: 1, b: 1, a: 1}
     requiredPoints: 3
     prerequisiteIds:
     - skill_003
@@ -96,7 +96,7 @@ MonoBehaviour:
     skillName: Master Healer
     description: Greatly enhances healing abilities
     icon: {fileID: 0}
-    nodeColor: {r: 0.2, g: 1, b: 0.2, a: 1}
+    nodeColor: {r: 1, g: 1, b: 1, a: 1}
     requiredPoints: 3
     prerequisiteIds:
     - skill_004
