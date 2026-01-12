@@ -74,8 +74,8 @@ public class UIManager : MonoBehaviour
         
     }
 
-    private void ToggleSkillTree()
-    {
+    private void ToggleSkillTree() {
+        GameplayManager.Instance.Pause(!skillTreePanel.activeSelf);
         skillTreePanel.SetActive(!skillTreePanel.activeSelf);
     }
     

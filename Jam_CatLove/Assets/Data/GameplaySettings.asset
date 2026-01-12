@@ -17,7 +17,7 @@ MonoBehaviour:
   optimalPettingSpeed: 0.3
   pettingSpeedLowerTolerance: 0.01
   pettingSpeedUpperTolerance: 0.6
-  optimalPettingSpeedMultiplier: 20
+  optimalPettingSpeedMultiplier: 1
   heartsMinSpawnInterval: 0.1
   multipleHeartsMinSpawnInterval: 0.1
   heartsPerFinishedZone: 20
@@ -29,3 +29,4 @@ MonoBehaviour:
   - BodyLeftSide
   - TailStart
   zoneActivationDelay: 1
+  zonePettingBaseMultiplier: 5

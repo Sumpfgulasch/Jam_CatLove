@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8d46da598da704594a5d3aa631bf33, type: 3}
   m_Name: CatZones1_L1
   m_EditorClassIdentifier: Assembly-CSharp::ZonesSkillEffect
-  effectDescription: Effect description
+  effectDescription: 
   newCatZones:
-  - LeftCheek
-  - RightCheek
-  - TopHead
-  - Chin
+  - LowerBack
+  - EntireBack
+  - BackLeftLeg
+  - BackRightLeg
+  - BodyLeftSide
+  - TailStart

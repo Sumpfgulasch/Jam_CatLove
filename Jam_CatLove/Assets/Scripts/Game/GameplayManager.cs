@@ -19,6 +19,20 @@ public class GameplayManager : MonoBehaviour {
     private float pettingSinceLastHeart;
     private float lastZoneFinishTime;
     private List<CatZone> activeZones = new();
+    
+    public static bool IsPaused { get; private set; }
+    
+    public void Pause(bool pause)
+    {
+        if (pause) {
+            Time.timeScale = 0f;
+            IsPaused = true;
+        }
+        else {
+            Time.timeScale = 1f;
+            IsPaused = false;
+        }
+    }
 
 
     void Start() {
@@ -41,22 +55,23 @@ public class GameplayManager : MonoBehaviour {
     /// <param name="speed">In screen diagonals per second</param>
     /// <param name="cursorPosition"></param>
     private void OnCatPetted(string hitLayer, float speed, Vector2 cursorPosition) {
+        
+        var optimalSpeedMultiplier = MathUtility.GetSpeedMultiplier(speed,
+            gameplaySettings.optimalPettingSpeed,
+            gameplaySettings.pettingSpeedLowerTolerance,
+            gameplaySettings.pettingSpeedUpperTolerance,
+            gameplaySettings.optimalPettingSpeedMultiplier);
+        
+        var currentPetting = (speed * PlayerSkillTreeState.Instance.PettingMultiplier * optimalSpeedMultiplier * Time.deltaTime);
+        
         // cat zone?
         if (PlayerSkillTreeState.Instance.UnlockedZones) {
             var catZone = activeZones.FirstOrDefault(activeZone => activeZone.Name.Equals(hitLayer));
 
             if (catZone != null) {
-                // update progress
-                var optimalSpeedMultiplier = MathUtility.GetSpeedMultiplier(speed,
-                    gameplaySettings.optimalPettingSpeed,
-                    gameplaySettings.pettingSpeedLowerTolerance,
-                    gameplaySettings.pettingSpeedUpperTolerance,
-                    gameplaySettings.optimalPettingSpeedMultiplier);
-                var currentPetting = (speed * gameplaySettings.zonePettingBaseMultiplier *
-                                      PlayerSkillTreeState.Instance.PettingMultiplier * optimalSpeedMultiplier *
-                                      Time.deltaTime);
+                currentPetting *= gameplaySettings.zonePettingBaseMultiplier;
+                
                 catZone.CurrentPetting += currentPetting;
-                pettingSinceLastHeart += currentPetting;
 
                 // animation
                 cat.SetAnimationHappiness(catZone.CurrentTargetPercentage);
@@ -69,8 +84,10 @@ public class GameplayManager : MonoBehaviour {
                 }
             }
         }
-
-        // spawn heart
+        
+        pettingSinceLastHeart += currentPetting;
+        
+        // spawn hearts
         if (pettingSinceLastHeart < gameplaySettings.requiredPettingPerHeart ||
             Time.time - lastHeartSpawn < gameplaySettings.heartsMinSpawnInterval) {
             return;

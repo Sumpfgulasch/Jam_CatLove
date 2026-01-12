@@ -32,10 +32,56 @@ MonoBehaviour:
     prerequisiteIds: []
     position: {x: 0, y: 0}
     isUnlocked: 1
-    currentLevel: 1
+    currentLevel: 3
     tier: 0
   - id: _CatZones1
-    skillName: Cat Zones
+    skillName: Freshly washed sheets
+    description: "Place a freshly covered pillow below your cat. \nAuto-generates
+      100 love per second."
+    icon: {fileID: 0}
+    nodeColor: {r: 1, g: 1, b: 1, a: 1}
+    levels:
+    - requiredPoints: 1000
+      effect: {fileID: 0}
+      levelDescription: 
+    prerequisiteIds:
+    - _CatZones2
+    position: {x: 0, y: 200}
+    isUnlocked: 0
+    currentLevel: 0
+    tier: 0
+  - id: Hand of Aphrodite
+    skillName: Freshly washed sheets
+    description: 'Your hands become so soft. No cat can resist.
+
+
+      *1.5 love'
+    icon: {fileID: 0}
+    nodeColor: {r: 1, g: 1, b: 1, a: 1}
+    levels:
+    - requiredPoints: 1000
+      effect: {fileID: 0}
+      levelDescription: 
+    - requiredPoints: 1000
+      effect: {fileID: 0}
+      levelDescription: 
+    - requiredPoints: 1000
+      effect: {fileID: 0}
+      levelDescription: 
+    - requiredPoints: 1000
+      effect: {fileID: 0}
+      levelDescription: 
+    - requiredPoints: 1000
+      effect: {fileID: 0}
+      levelDescription: 
+    prerequisiteIds:
+    - _CatZones2
+    position: {x: 0, y: 600}
+    isUnlocked: 0
+    currentLevel: 0
+    tier: 0
+  - id: _CatZones2
+    skillName: Cat Zones 2
     description: You gained your cat's trust. Touch it on more sensible body parts
       like cheeks, head, and chin.
     icon: {fileID: 0}
@@ -46,14 +92,32 @@ MonoBehaviour:
       levelDescription: 
     prerequisiteIds:
     - _CatLove1
-    position: {x: 0, y: 200}
+    position: {x: 0, y: 400}
     isUnlocked: 1
     currentLevel: 1
     tier: 0
-  - id: _CatZones2
-    skillName: Cat Zones 2
-    description: "Place a freshly covered pillow below your cat. \nAuto-generates
-      100 love per second."
+  - id: _Lover
+    skillName: Lover
+    description: 'You''re a true lover. '
+    icon: {fileID: 0}
+    nodeColor: {r: 1, g: 1, b: 1, a: 1}
+    levels:
+    - requiredPoints: 1000
+      effect: {fileID: 0}
+      levelDescription: 
+    prerequisiteIds:
+    - _CatZones2
+    position: {x: 0, y: 600}
+    isUnlocked: 0
+    currentLevel: 0
+    tier: 0
+  - id: _CatZones3
+    skillName: Cat Zones 3
+    description: 'Your cat starts to show affection to you. She wants to be touched
+      on even more vulnerable body parts.
+
+
+      Paws can be petted.'
     icon: {fileID: 0}
     nodeColor: {r: 1, g: 1, b: 1, a: 1}
     levels:

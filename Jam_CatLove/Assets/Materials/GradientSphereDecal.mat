@@ -51,7 +51,7 @@ Material:
     - _DecalMeshViewBias: 0
     - _DrawOrder: 0
     - _Intensity: 1
-    - _Opacity: 0.27026507
+    - _Opacity: 0.5985992
     - _Smoothness: 0.158
     m_Colors:
     - _Color: {r: 1, g: 0.9981132, b: 0.759434, a: 0}
