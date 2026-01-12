@@ -21,4 +21,5 @@ public class GameplaySettings : ScriptableObject
     [Header("Zone")] 
     public string[] startZones;
     public float zoneActivationDelay = 1f;
+    public float zonePettingBaseMultiplier = 5f;
 }

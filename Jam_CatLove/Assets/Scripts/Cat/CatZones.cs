@@ -7,7 +7,7 @@ public class CatZones
     private CatZone[] allZones;
     private Transform zonesParent;
 
-    private List<CatZone> UnlockedZones { get; set; } = new();
+    public List<CatZone> UnlockedZones { get; private set; } = new();
     private GameplaySettings gameplaySettings;
     
     
@@ -36,6 +36,7 @@ public class CatZones
     {
         foreach (var zone in zones)
         {
+            // Get CatZone reference
             var catZone = allZones.FirstOrDefault(z => z.GameObject.name.Equals(zone));
             if (catZone == null)
             {

@@ -15,12 +15,12 @@ namespace UI.Examples
         public override void Apply(int level)
         {
             Debug.Log("Applied CatLove1SkillEffect: " + pettingMultiplier);
-            GameplayManager.Instance.pettingSkillMultiplier = pettingMultiplier;
+            PlayerSkillTreeState.Instance.PettingMultiplier = pettingMultiplier;
         }
         
         public override void Remove(int level)
         {
-            GameplayManager.Instance.pettingSkillMultiplier = 1f;
+            PlayerSkillTreeState.Instance.PettingMultiplier = 1f;
         }
     }
 }

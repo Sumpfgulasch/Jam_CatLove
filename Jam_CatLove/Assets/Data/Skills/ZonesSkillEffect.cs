@@ -4,17 +4,20 @@ using UI;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ZonesSkillEffect", menuName = "Skills/ZonesSkillEffect")]
-public class ZonesSkillEffect : SkillLevelEffect
-{
+public class ZonesSkillEffect : SkillLevelEffect {
     public List<string> newCatZones;
-    
-    public override void Apply(int level)
-    {
+
+    public override void Apply(int level) {
         GameplayManager.Instance.Cat.Zones.UnlockZones(newCatZones);
+        
+        if (level == 1) {
+            PlayerSkillTreeState.Instance.UnlockedZones = true;
+            GameplayManager.Instance.ActivateRandomZoneDelayed();
+        }
     }
 
-    public override void Remove(int level)
-    {
+    public override void Remove(int level) {
         GameplayManager.Instance.Cat.Zones.LockZones(newCatZones);
+            PlayerSkillTreeState.Instance.UnlockedZones = false;
     }
 }
