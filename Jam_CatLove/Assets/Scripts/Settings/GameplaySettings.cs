@@ -12,6 +12,8 @@ public class GameplaySettings : ScriptableObject
     public float pettingSpeedLowerTolerance = 0.25f;
     public float pettingSpeedUpperTolerance = 0.25f;
     public float optimalPettingSpeedMultiplier = 20f;
+    [Space] 
+    public float maxPettingSpeed = 8f;
 
     [Header("Hearts")] 
     public float heartsMinSpawnInterval = 0.1f;
