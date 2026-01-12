@@ -1,17 +1,44 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class CatZones : MonoBehaviour
+public class CatZones
 {
-    public CatZone[] Zones { get; private set; }
-    
-    public void Init()
-    {
-        Zones = GetComponentsInChildren<CatZone>(true);
+    private CatZone[] allZones;
+    private Transform zonesParent;
 
-        foreach (var catZone in Zones)
+    private List<CatZone> UnlockedZones { get; set; } = new();
+    
+    
+    public void Init(GameplaySettings gameplaySettings, Transform zonesParent)
+    {
+        this.zonesParent = zonesParent;
+        UnlockedZones = gameplaySettings.startZones.ToList();
+        
+        InitZones();
+    }
+    
+    private void InitZones()
+    {
+        allZones = zonesParent.GetComponentsInChildren<CatZone>(true);
+
+        foreach (var catZone in allZones)
         {
             catZone.Init();
             catZone.gameObject.SetActive(false);
         }
     }
+    
+    public void UnlockZones(List<CatZone> zones)
+    {
+        foreach (var zone in zones)
+        {
+            if (!UnlockedZones.Contains(zone))
+            {
+                UnlockedZones.Add(zone);
+            }
+        }
+    }
+
+    public CatZone GetRandomZone() => UnlockedZones[Random.Range(0, UnlockedZones.Count)];
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   skills:
   - id: _CatLove1
     skillName: Cat Love
-    description: Your cats love your touches. Gain more love from now on.
+    description: Your cat loves your touches. Gain more love from petting it.
     icon: {fileID: 0}
     nodeColor: {r: 1, g: 1, b: 1, a: 1}
     levels:

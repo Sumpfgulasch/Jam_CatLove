@@ -17,7 +17,8 @@ public class GameplaySettings : ScriptableObject
     public float heartsMinSpawnInterval = 0.1f;
     public float multipleHeartsMinSpawnInterval = 0.01f;
     public int heartsPerFinishedZone = 20;
-    
-    [Header("Zone")]
+
+    [Header("Zone")] 
+    public CatZone[] startZones;
     public float zoneActivationDelay = 1f;
 }

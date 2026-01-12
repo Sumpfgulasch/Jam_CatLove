@@ -11,14 +11,16 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private CatInteractionDetector interactionDetector;
     [SerializeField] private CatVisualSettings catVisualSettings;
     [SerializeField] private GameplaySettings gameplaySettings;
+    
+    public float pettingSkillMultiplier { get; set; } = 1f;
+    public int heartsCount { get; set; } = 0;
 
     private float lastHeartSpawn = 0f;
     private float pettingSinceLastHeart;
     private float lastZoneFinishTime;
     private List<CatZone> activeZones = new();
-
-    public int heartsCount { get; set; } = 0;
-
+    
+    
     void Start()
     {
         if (Instance != null && Instance != this)
@@ -32,13 +34,9 @@ public class GameplayManager : MonoBehaviour
         
         interactionDetector.OnCatPetted += OnCatPetted;
 
-        cat.Init(catVisualSettings);
-        foreach (var catZone in cat.Zones)
-        {
-            catZone.Enable(false);
-        }
+        cat.Init(gameplaySettings, catVisualSettings);
 
-        StartCoroutine(ActivateZoneDelayed(cat.GetRandomZone()));
+        ActivateRandomZoneDelayed();
     }
 
     void Update()
@@ -63,20 +61,18 @@ public class GameplayManager : MonoBehaviour
             gameplaySettings.pettingSpeedLowerTolerance, 
             gameplaySettings.pettingSpeedUpperTolerance, 
             gameplaySettings.optimalPettingSpeedMultiplier);
-        var currentPetting = (speed * optimalSpeedMultiplier * Time.deltaTime);
-        pettingSinceLastHeart += currentPetting;
+        var currentPetting = (speed * pettingSkillMultiplier * optimalSpeedMultiplier * Time.deltaTime);
         catZone.CurrentPetting += currentPetting;
+        pettingSinceLastHeart += currentPetting;
         
         // animation
         cat.SetAnimationHappiness(catZone.CurrentTargetPercentage);
-        
-        //Debug.Log($"currentPetting: {catZone.CurrentPetting}, speed: {speed}, speed multiplier: {optimalSpeedMultiplier}");
 
         // finish zone?
         if (catZone.IsTargetReached)
         {
             FinishZone(catZone, cursorPosition);
-            StartCoroutine(ActivateZoneDelayed(cat.GetRandomZone()));
+            ActivateRandomZoneDelayed();
             return;
         }
 
@@ -107,7 +103,12 @@ public class GameplayManager : MonoBehaviour
         lastZoneFinishTime = Time.time;
     }
 
-    private IEnumerator ActivateZoneDelayed(CatZone zone)
+    private void ActivateRandomZoneDelayed()
+    {
+        StartCoroutine(ActivateRandomZoneDelayedRoutine(cat.Zones.GetRandomZone()));
+    }
+    
+    private IEnumerator ActivateRandomZoneDelayedRoutine(CatZone zone)
     {
         yield return new WaitForSeconds(gameplaySettings.zoneActivationDelay);
         ActivateZone(zone);

@@ -22,8 +22,8 @@ public class CatZone : MonoBehaviour
 
     public void Activate(float targetPetting)
     {
-        TargetPetting = targetPetting;
         gameObject.SetActive(true);
+        TargetPetting = targetPetting;
     }
     
     public void Reset()

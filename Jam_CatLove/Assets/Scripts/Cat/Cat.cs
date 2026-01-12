@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -9,39 +10,31 @@ using Random = UnityEngine.Random;
 public class Cat : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    [SerializeField] private CatZones zones;
-    public CatZone[] Zones => zones.Zones;
+    [SerializeField] private Transform zonesParent;
+    
+    public CatZones Zones { get; set; }
     
     private CatVFX vfx;
-    
 
-    public void Init(CatVisualSettings visualSettings)
+    public void Init(GameplaySettings gameplaySettings, CatVisualSettings visualSettings)
     {
-        zones.Init();
+        Zones.Init(gameplaySettings, zonesParent);
+
         vfx = new CatVFX(visualSettings);
     }
     
-    public CatZone GetRandomZone() => zones.Zones[Random.Range(0, zones.Zones.Length)];
-
-
-    private void Start()
-    {
-        
-    }
-
     public void Tick(List<CatZone> activeZones)
     {
         vfx.Tick(activeZones);
     }
-    
+
     public void SetAnimationHappiness(float happiness)
     {
         animator.SetFloat("Happiness", happiness);
     }
-    
+
 
     public void Vanish()
     {
-        
     }
 }
