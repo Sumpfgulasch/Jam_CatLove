@@ -12,12 +12,13 @@ public class Cat : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Transform zonesParent;
     
-    public CatZones Zones { get; set; }
+    public CatZones Zones { get; private set; }
     
     private CatVFX vfx;
 
     public void Init(GameplaySettings gameplaySettings, CatVisualSettings visualSettings)
     {
+        Zones = new CatZones();
         Zones.Init(gameplaySettings, zonesParent);
 
         vfx = new CatVFX(visualSettings);

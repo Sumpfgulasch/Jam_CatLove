@@ -35,7 +35,6 @@ public class CatZone : MonoBehaviour
     
     public void Enable(bool enable)
     {
-        // todo: spawn hearts, send to ui bar
         GameObject.SetActive(enable);
     }
 }

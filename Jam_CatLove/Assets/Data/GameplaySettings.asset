@@ -20,4 +20,12 @@ MonoBehaviour:
   optimalPettingSpeedMultiplier: 20
   heartsMinSpawnInterval: 0.1
   multipleHeartsMinSpawnInterval: 0.1
+  heartsPerFinishedZone: 20
+  startZones:
+  - LowerBack
+  - EntireBack
+  - BackLeftLeg
+  - BackRightLeg
+  - BodyLeftSide
+  - TailStart
   zoneActivationDelay: 1

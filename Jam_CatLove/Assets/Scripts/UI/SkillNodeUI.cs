@@ -113,9 +113,9 @@ namespace UI
                 // Unlocked but not max level
                 targetColor = unlockedColor;
             }
-            else if (_treeManager != null && _treeManager.CanUnlockSkill(_skillData.id))
+            else if (_treeManager != null && _treeManager.CanUnlockSkill(_skillData.id, true))
             {
-                // Available to unlock
+                // Available to unlock (ignoring points)
                 targetColor = availableColor;
             }
             else

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac08646f982411143a967543ded4b3f0, type: 3}
   m_Name: CatLove1_L2
   m_EditorClassIdentifier: Assembly-CSharp::UI.Examples.CatLove1SkillEffect
-  effectDescription: 
+  effectDescription: 1.2x petting speed
   pettingMultiplier: 1.2

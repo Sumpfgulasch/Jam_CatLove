@@ -19,6 +19,6 @@ public class GameplaySettings : ScriptableObject
     public int heartsPerFinishedZone = 20;
 
     [Header("Zone")] 
-    public CatZone[] startZones;
+    public string[] startZones;
     public float zoneActivationDelay = 1f;
 }

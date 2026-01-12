@@ -196,12 +196,13 @@ namespace UI
         /// <summary>
         /// Check if a skill can be unlocked
         /// </summary>
-        public bool CanUnlockSkill(string skillId)
+        public bool CanUnlockSkill(string skillId, bool ignorePoints = false)
         {
             var skill = treeData.GetSkillById(skillId);
-            if (skill == null) return false;
+            if (skill == null) 
+                return false;
             
-            return skill.CanUnlock(gameplayManager.heartsCount, _unlockedSkills);
+            return ignorePoints ? skill.CanUnlockIgnoringPoints(_unlockedSkills) : skill.CanUnlock(gameplayManager.heartsCount, _unlockedSkills);
         }
         
         /// <summary>
@@ -282,7 +283,7 @@ namespace UI
                 if (skill.currentLevel < skill.maxLevel)
                 {
                     int nextLevelCost = skill.GetRequiredPointsForNextLevel();
-                    reqText += $"Next Level Cost: {nextLevelCost} point(s)\n";
+                    reqText += $"Next Level: {nextLevelCost} hearts\n";
                 }
                 else
                 {
@@ -330,7 +331,8 @@ namespace UI
         /// </summary>
         private void UpdateSkillPointsDisplay()
         {
-            UIManager.Instance.heartsCountText.text = gameplayManager.heartsCount.ToString();
+            var oldNumber = int.Parse(UIManager.Instance.heartsCountText.text);
+            DoTweenUtils.PlayNumberCountAnimation(UIManager.Instance.heartsCountText, oldNumber, gameplayManager.heartsCount);
         }
         
         /// <summary>
@@ -355,10 +357,6 @@ namespace UI
             }
             
             _unlockedSkills.Clear();
-            
-            // Unlock first skill
-            treeData.skills[0].isUnlocked = true;
-            _unlockedSkills.Add(treeData.skills[0].id);
             
             UpdateAllNodeVisuals();
             UpdateSkillPointsDisplay();

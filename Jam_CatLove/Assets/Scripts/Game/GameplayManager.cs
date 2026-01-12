@@ -14,6 +14,8 @@ public class GameplayManager : MonoBehaviour
     
     public float pettingSkillMultiplier { get; set; } = 1f;
     public int heartsCount { get; set; } = 0;
+    
+    public Cat Cat => cat;
 
     private float lastHeartSpawn = 0f;
     private float pettingSinceLastHeart;

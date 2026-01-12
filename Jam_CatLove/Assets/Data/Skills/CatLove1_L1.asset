@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac08646f982411143a967543ded4b3f0, type: 3}
   m_Name: CatLove1_L1
   m_EditorClassIdentifier: Assembly-CSharp::UI.Examples.ExampleSkillEffect
-  effectDescription: 
-  damageMultiplier: 1.1
-  healthBonus: 10
+  effectDescription: 1.1x petting speed
+  pettingMultiplier: 1.1
