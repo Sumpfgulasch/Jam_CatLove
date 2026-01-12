@@ -101,6 +101,7 @@ public class UIManager : MonoBehaviour
 
         // Instantiate heart as child of canvas
         GameObject heart = Instantiate(catHeartPrefab, canvas.transform);
+        heart.transform.SetSiblingIndex(0);
         RectTransform heartRect = heart.GetComponent<RectTransform>();
         heartRect.anchoredPosition = canvasPosition;
         

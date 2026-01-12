@@ -26,13 +26,13 @@ MonoBehaviour:
     - requiredPoints: 30
       effect: {fileID: 11400000, guid: 636dec0e4504d274ba669e75e796f4f0, type: 2}
       levelDescription: level description
-    - requiredPoints: 40
+    - requiredPoints: 50
       effect: {fileID: 11400000, guid: a898c14b0faf01d40a453bc5bf73564c, type: 2}
       levelDescription: level description
     prerequisiteIds: []
     position: {x: 0, y: 0}
-    isUnlocked: 1
-    currentLevel: 3
+    isUnlocked: 0
+    currentLevel: 0
     tier: 0
   - id: _CatZones1
     skillName: Freshly washed sheets
@@ -45,13 +45,44 @@ MonoBehaviour:
       effect: {fileID: 0}
       levelDescription: 
     prerequisiteIds:
-    - _CatZones2
+    - _CatLove1
     position: {x: 0, y: 200}
     isUnlocked: 0
     currentLevel: 0
     tier: 0
-  - id: Hand of Aphrodite
-    skillName: Freshly washed sheets
+  - id: _Lover
+    skillName: Lover
+    description: 'You''re a true lover. '
+    icon: {fileID: 0}
+    nodeColor: {r: 1, g: 1, b: 1, a: 1}
+    levels:
+    - requiredPoints: 1000
+      effect: {fileID: 0}
+      levelDescription: 
+    prerequisiteIds:
+    - _CatZones1
+    position: {x: 0, y: 400}
+    isUnlocked: 0
+    currentLevel: 0
+    tier: 0
+  - id: _CatZones2
+    skillName: Cat Zones 2
+    description: You gained your cat's trust. Touch it on more sensible body parts
+      like cheeks, head, and chin.
+    icon: {fileID: 0}
+    nodeColor: {r: 1, g: 1, b: 1, a: 1}
+    levels:
+    - requiredPoints: 1
+      effect: {fileID: 11400000, guid: 9d69b04c18ba3f64e80876511c6b30c3, type: 2}
+      levelDescription: 
+    prerequisiteIds:
+    - _Lover
+    position: {x: 0, y: 600}
+    isUnlocked: 0
+    currentLevel: 0
+    tier: 0
+  - id: _HandOfAphrodite
+    skillName: Hand of Aphrodite
     description: 'Your hands become so soft. No cat can resist.
 
 
@@ -76,38 +107,7 @@ MonoBehaviour:
       levelDescription: 
     prerequisiteIds:
     - _CatZones2
-    position: {x: 0, y: 600}
-    isUnlocked: 0
-    currentLevel: 0
-    tier: 0
-  - id: _CatZones2
-    skillName: Cat Zones 2
-    description: You gained your cat's trust. Touch it on more sensible body parts
-      like cheeks, head, and chin.
-    icon: {fileID: 0}
-    nodeColor: {r: 1, g: 1, b: 1, a: 1}
-    levels:
-    - requiredPoints: 1
-      effect: {fileID: 11400000, guid: 9d69b04c18ba3f64e80876511c6b30c3, type: 2}
-      levelDescription: 
-    prerequisiteIds:
-    - _CatLove1
-    position: {x: 0, y: 400}
-    isUnlocked: 1
-    currentLevel: 1
-    tier: 0
-  - id: _Lover
-    skillName: Lover
-    description: 'You''re a true lover. '
-    icon: {fileID: 0}
-    nodeColor: {r: 1, g: 1, b: 1, a: 1}
-    levels:
-    - requiredPoints: 1000
-      effect: {fileID: 0}
-      levelDescription: 
-    prerequisiteIds:
-    - _CatZones2
-    position: {x: 0, y: 600}
+    position: {x: 0, y: 800}
     isUnlocked: 0
     currentLevel: 0
     tier: 0
@@ -125,8 +125,8 @@ MonoBehaviour:
       effect: {fileID: 0}
       levelDescription: 
     prerequisiteIds:
-    - _CatZones1
-    position: {x: 0, y: 400}
+    - _HandOfAphrodite
+    position: {x: 0, y: 1000}
     isUnlocked: 0
     currentLevel: 0
     tier: 0
@@ -141,8 +141,8 @@ MonoBehaviour:
       effect: {fileID: 0}
       levelDescription: 
     prerequisiteIds:
-    - _CatZones2
-    position: {x: 0, y: 600}
+    - _CatZones3
+    position: {x: 0, y: 1200}
     isUnlocked: 0
     currentLevel: 0
     tier: 0

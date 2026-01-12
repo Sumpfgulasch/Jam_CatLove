@@ -229,12 +229,12 @@
                 },
                 {
                     "name": "",
-                    "id": "deb1c40c-93e9-4bc9-98e9-bb5f9ea50028",
+                    "id": "0c9a64a8-eedb-46af-a92c-c704a2174014",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Menu",
+                    "groups": "",
+                    "action": "ToggleSkillTree",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

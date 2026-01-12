@@ -283,7 +283,7 @@ namespace UI
                 if (skill.currentLevel < skill.maxLevel)
                 {
                     int nextLevelCost = skill.GetRequiredPointsForNextLevel();
-                    reqText += $"Next Level: {nextLevelCost} hearts\n";
+                    reqText += $"Cost: {nextLevelCost} hearts\n";
                 }
                 else
                 {
