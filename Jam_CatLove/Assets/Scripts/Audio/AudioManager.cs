@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class FmodParameter {
     public const string PETTING_SPEED = "PettingSpeed";
+    public const string HEARTS_COUNT = "HeartsCount";
+    public const string MEOW_SPAWN_RATE = "MeowSpawnRate";
+    public const string TRIGGER_MEOW = "TriggerMeow";
 }
 
 public class AudioManager : MonoBehaviour
@@ -25,7 +28,7 @@ public class AudioManager : MonoBehaviour
     }
 
     private void Start() {
-        Play2DAudio(AudioEvent.CatPetting);
+        
     }
     
     public EventInstance Play2DAudio(FMOD.GUID audioEvent) {

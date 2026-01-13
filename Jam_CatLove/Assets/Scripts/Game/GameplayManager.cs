@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Audio;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
@@ -48,6 +49,10 @@ public class GameplayManager : MonoBehaviour {
         interactionDetector.OnCatPetted += OnCatPetted;
 
         cat.Init(gameplaySettings, catVisualSettings);
+        
+        AudioManager.Instance.Play2DAudio(AudioEvent.CatPetting);
+        AudioManager.Instance.Play3DAudio(AudioEvent.CatPurr, cat.catSoundTransform);
+        AudioManager.Instance.Play3DAudio(AudioEvent.CatMeows, cat.catSoundTransform);
     }
 
     void Update() {
@@ -60,6 +65,8 @@ public class GameplayManager : MonoBehaviour {
             heartsCount = 0;
             UIManager.Instance.heartsCountText.text = heartsCount.ToString();
         }
+        
+        AudioManager.Instance.SetGlobalParameter(FmodParameter.HEARTS_COUNT, heartsCount);
     }
 
     /// <param name="speed">In screen diagonals per second</param>
@@ -125,6 +132,8 @@ public class GameplayManager : MonoBehaviour {
         activeZones.Remove(zone);
         lastZoneFinishTime = Time.time;
         firstZoneSatisfied = true;
+        
+        AudioManager.Instance.SetGlobalParameter(FmodParameter.TRIGGER_MEOW, 1f);
     }
 
     public void ActivateRandomZoneDelayed() {

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="ParameterPreset" id="{22c797ec-e532-478a-b287-934d8b22312e}">
+	<object class="ParameterPreset" id="{d28528ee-c6c5-4530-abb4-a981039131ac}">
 		<property name="name">
-			<value>PettingSpeed</value>
+			<value>HeartsCount</value>
 		</property>
 		<relationship name="folder">
 			<destination>{95daf348-f7cd-49a4-8bdb-a0303fea1cc2}</destination>
 		</relationship>
 		<relationship name="parameter">
-			<destination>{772daf04-2baa-4a94-8e7b-a8090b82b3d3}</destination>
+			<destination>{e4a68e61-ee45-49fc-b913-07d0cf649c53}</destination>
 		</relationship>
 	</object>
-	<object class="GameParameter" id="{772daf04-2baa-4a94-8e7b-a8090b82b3d3}">
+	<object class="GameParameter" id="{e4a68e61-ee45-49fc-b913-07d0cf649c53}">
 		<property name="maximum">
-			<value>0.59999999999999998</value>
+			<value>20</value>
 		</property>
 		<property name="isGlobal">
 			<value>true</value>
@@ -25,18 +25,15 @@
 			<value>false</value>
 		</property>
 		<relationship name="modulators">
-			<destination>{9c8af451-7b81-4f34-96ba-503874ccb34e}</destination>
+			<destination>{8c8d12a4-fd1f-4afd-bc59-16b2617451af}</destination>
 		</relationship>
 	</object>
-	<object class="SeekModulator" id="{9c8af451-7b81-4f34-96ba-503874ccb34e}">
+	<object class="SeekModulator" id="{8c8d12a4-fd1f-4afd-bc59-16b2617451af}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>cursorPosition</value>
 		</property>
-		<property name="speedAscending">
-			<value>4.5999999046325684</value>
-		</property>
 		<property name="speedDescending">
-			<value>1.3999999761581421</value>
+			<value>0.0099999997764825821</value>
 		</property>
 		<property name="asymmetric">
 			<value>true</value>

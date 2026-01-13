@@ -14,8 +14,9 @@ namespace UI.Examples
         
         public override void Apply(int level)
         {
-            Debug.Log("Applied CatLove1SkillEffect: " + pettingMultiplier);
-            PlayerSkillTreeState.Instance.PettingMultiplier = pettingMultiplier;
+            PlayerSkillTreeState.Instance.PettingMultiplier *= pettingMultiplier;
+            var meowSpawnRate = 1 + ((1 - PlayerSkillTreeState.Instance.PettingMultiplier) / 2f);
+            AudioManager.Instance.SetGlobalParameter(FmodParameter.MEOW_SPAWN_RATE, meowSpawnRate);
         }
         
         public override void Remove(int level)

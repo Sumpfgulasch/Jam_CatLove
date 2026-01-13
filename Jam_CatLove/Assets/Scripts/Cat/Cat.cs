@@ -1,16 +1,11 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
-using DG.Tweening;
-using UnityEngine.InputSystem;
-using Random = UnityEngine.Random;
 
 public class Cat : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private Transform zonesParent;
+    public Transform catSoundTransform;
     
     public CatZones Zones { get; private set; }
     

@@ -19,6 +19,7 @@ public class CatInteractionDetector : MonoBehaviour
     private Vector2 previousCursorPosition = new();
     private float screenDiagonal;
     private bool isCatHover = false;
+    private float currentPettingSpeed = 0f;
 
 
     void Awake()
@@ -44,6 +45,29 @@ public class CatInteractionDetector : MonoBehaviour
         inputActions.Player.Interact.canceled -= OnInteract;
     }
 
+    private Vector2 prevCursorPos;
+
+    private void Update()
+    {
+        var mousePos = Mouse.current.position.ReadValue();
+        var curSpeed = (((mousePos - prevCursorPos) / Time.deltaTime).magnitude) / screenDiagonal;
+        
+        // Check if hovering cat
+        var isCatHover = IsCatHover(mousePos, out hitCatLayer);
+        
+        // Only set speed if hovering cat and holding interaction button, otherwise set to 0
+        if (isCatHover && isInteractionButtonHold)
+        {
+            AudioManager.Instance.SetGlobalParameter(FmodParameter.PETTING_SPEED, curSpeed);
+        }
+        else
+        {
+            AudioManager.Instance.SetGlobalParameter(FmodParameter.PETTING_SPEED, 0f);
+        }
+        
+        prevCursorPos = mousePos;
+    }
+
     private void OnMoveCursor(InputAction.CallbackContext context)
     {
         if (UIManager.Instance.IsSkillTreeOpen) 
@@ -62,9 +86,8 @@ public class CatInteractionDetector : MonoBehaviour
         if (isInteractionButtonHold)
         {
             // speed unit: screen diagonals per second
-            var speed = (((cursorPosition - previousCursorPosition) / Time.deltaTime).magnitude) / screenDiagonal;
-            
-            OnCatPetted?.Invoke(hitCatLayer, speed, cursorPosition, false);
+            currentPettingSpeed = (((cursorPosition - previousCursorPosition) / Time.deltaTime).magnitude) / screenDiagonal;
+            OnCatPetted?.Invoke(hitCatLayer, currentPettingSpeed, cursorPosition, false);
         }
 
         previousCursorPosition = cursorPosition;
