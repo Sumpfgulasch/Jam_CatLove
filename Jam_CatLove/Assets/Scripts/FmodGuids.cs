@@ -11,12 +11,12 @@ namespace Audio
 {
     public class AudioEvent
     {
-        public static readonly FMOD.GUID test = new FMOD.GUID { Data1 = -1245905491, Data2 = 1267082880, Data3 = 339970457, Data4 = -588250560 };
+        public static readonly FMOD.GUID CatPetting = new FMOD.GUID { Data1 = -1245905491, Data2 = 1267082880, Data3 = 339970457, Data4 = -588250560 };
 
 
         public static readonly Dictionary<string, FMOD.GUID> AudioEventNameToGuid = new Dictionary<string, FMOD.GUID>()
         {
-                {"test", test}, 
+                {"CatPetting", CatPetting}, 
         };
     }
 
