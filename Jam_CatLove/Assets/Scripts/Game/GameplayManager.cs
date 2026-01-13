@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 
 public class GameplayManager : MonoBehaviour {
@@ -19,6 +20,7 @@ public class GameplayManager : MonoBehaviour {
     private float pettingSinceLastHeart;
     private float lastZoneFinishTime;
     private List<CatZone> activeZones = new();
+    private bool firstZoneSatisfied;
     
     public static bool IsPaused { get; private set; }
     
@@ -50,16 +52,26 @@ public class GameplayManager : MonoBehaviour {
 
     void Update() {
         cat.Tick(activeZones);
+        if (Keyboard.current.fKey.wasPressedThisFrame) {
+            heartsCount += 1000;
+            UIManager.Instance.heartsCountText.text = heartsCount.ToString();
+        }
+        if (Keyboard.current.dKey.wasPressedThisFrame) {
+            heartsCount = 0;
+            UIManager.Instance.heartsCountText.text = heartsCount.ToString();
+        }
     }
 
     /// <param name="speed">In screen diagonals per second</param>
     /// <param name="cursorPosition"></param>
-    private void OnCatPetted(string hitLayer, float speed, Vector2 cursorPosition) {
+    private void OnCatPetted(string hitLayer, float speed, Vector2 cursorPosition, bool isGrab) {
+        Debug.Log("speed: " + speed);
         
         var optimalSpeedMultiplier = MathUtility.GetSpeedMultiplier(speed,
             gameplaySettings.optimalPettingSpeed,
             gameplaySettings.pettingSpeedLowerTolerance,
             gameplaySettings.pettingSpeedUpperTolerance,
+            gameplaySettings.pettingSpeedOutOfRangeMultiplier,
             gameplaySettings.optimalPettingSpeedMultiplier);
         
         var clampedSpeed = Mathf.Clamp(speed, 0, gameplaySettings.maxPettingSpeed);
@@ -107,11 +119,12 @@ public class GameplayManager : MonoBehaviour {
     private void FinishZone(CatZone zone, Vector2 cursorPosition) {
         var position = cursorPosition + new Vector2(0, Screen.height * catVisualSettings.heartSpawnYOffset);
         heartsCount += gameplaySettings.heartsPerFinishedZone;
-        UIManager.Instance.SpawnCatHearts(position, gameplaySettings.heartsPerFinishedZone);
+        UIManager.Instance.SpawnCatHearts(position, gameplaySettings.heartsPerFinishedZone, true);
         zone.Reset();
         zone.Enable(false);
         activeZones.Remove(zone);
         lastZoneFinishTime = Time.time;
+        firstZoneSatisfied = true;
     }
 
     public void ActivateRandomZoneDelayed() {

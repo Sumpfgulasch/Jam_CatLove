@@ -75,21 +75,23 @@ public class UIManager : MonoBehaviour
     }
 
     private void ToggleSkillTree() {
-        GameplayManager.Instance.Pause(!skillTreePanel.activeSelf);
+        //GameplayManager.Instance.Pause(!skillTreePanel.activeSelf); // dont pause, otherwise hearts-spend-animations wont play
         skillTreePanel.SetActive(!skillTreePanel.activeSelf);
     }
     
-    public void SpawnCatHearts(Vector2 screenPoint, int count = 1)
+    public void SpawnCatHearts(Vector2 screenPoint, int count = 1, bool moveInstant = false)
     {
         // Spawn multiple hearts with a slight delay between each
-        for (int i = 0; i < count; i++)
-        {
-            float spawnDelay = i * gameplaySettings.multipleHeartsMinSpawnInterval;
-            SpawnSingleHeart(screenPoint, spawnDelay);
+        for (int i = 0; i < count; i++) {
+            var interval = moveInstant
+                ? gameplaySettings.multipleHeartsMinSpawnInterval / 2f
+                : gameplaySettings.multipleHeartsMinSpawnInterval;
+            float spawnDelay = i * interval;
+            SpawnSingleHeart(screenPoint, spawnDelay, moveInstant);
         }
     }
     
-    private void SpawnSingleHeart(Vector2 screenPoint, float initialDelay)
+    private void SpawnSingleHeart(Vector2 screenPoint, float initialDelay, bool moveInstant = false)
     {
         // Convert the cat's heart spawn position to canvas space
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
@@ -119,7 +121,7 @@ public class UIManager : MonoBehaviour
         
         // 1. Pop out with overshoot
         heartSequence.Append(
-            heartRect.DOScale(1f, popDuration).SetEase(Ease.OutBack, popOvershoot)
+            heartRect.DOScale(1f, moveInstant ? 0.001f : popDuration).SetEase(Ease.OutBack, popOvershoot)
         );
         
         // 2. Move to target position with acceleration
@@ -132,15 +134,18 @@ public class UIManager : MonoBehaviour
             out var targetLocalCanvasPosition);
         
         heartSequence.Append(
-            heartRect.DOAnchorPos(targetLocalCanvasPosition, moveDuration)
+            heartRect.DOAnchorPos(targetLocalCanvasPosition, moveInstant ? moveDuration / 3f : moveDuration)
                 .SetEase(Ease.InQuad)
         );
         
         // 3. Optional: scale down slightly as it reaches target
-        heartSequence.Join(
-            heartRect.DOScale(0.7f, moveDuration * 0.5f)
-                .SetDelay(moveDuration * 0.5f)
-        );
+        if (!moveInstant) {
+            heartSequence.Join(
+                heartRect.DOScale(0.7f, moveDuration * 0.5f)
+                    .SetDelay(moveDuration * 0.5f)
+            );
+        }
+        
         heartSequence.AppendCallback(() =>
         {
             heartsCountText.text = (int.Parse(heartsCountText.text) + 1).ToString();

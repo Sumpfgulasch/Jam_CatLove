@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UI.SkillTreeData
   treeName: Skill Tree
   skills:
-  - id: _CatLove1
-    skillName: Cat Love
-    description: Your cat loves your touches. Gain more love from petting it.
+  - id: _NoviceCatPetter
+    skillName: Novice Cat Petter
+    description: You don't really know how to touch a cat yet but you're learning.
+      Gain more love from petting it.
     icon: {fileID: 0}
     nodeColor: {r: 1, g: 1, b: 1, a: 1}
     levels:
@@ -24,40 +25,54 @@ MonoBehaviour:
       effect: {fileID: 11400000, guid: b7689213f98c1a641a6e1122fbd730b9, type: 2}
       levelDescription: level description
     - requiredPoints: 30
-      effect: {fileID: 11400000, guid: 636dec0e4504d274ba669e75e796f4f0, type: 2}
+      effect: {fileID: 11400000, guid: b7689213f98c1a641a6e1122fbd730b9, type: 2}
       levelDescription: level description
-    - requiredPoints: 50
-      effect: {fileID: 11400000, guid: a898c14b0faf01d40a453bc5bf73564c, type: 2}
+    - requiredPoints: 40
+      effect: {fileID: 11400000, guid: b7689213f98c1a641a6e1122fbd730b9, type: 2}
       levelDescription: level description
     prerequisiteIds: []
     position: {x: 0, y: 0}
-    isUnlocked: 0
-    currentLevel: 0
+    isUnlocked: 1
+    currentLevel: 3
     tier: 0
   - id: _CatZones1
-    skillName: Freshly washed sheets
-    description: "Place a freshly covered pillow below your cat. \nAuto-generates
-      100 love per second."
+    skillName: Zones of Pleasure 1
+    description: 'Your cat doesn''t really care about your touches, but it allows
+      you to touch it in certain areas.
+
+
+      Touch it in certain zones to gain
+      extra love.'
     icon: {fileID: 0}
     nodeColor: {r: 1, g: 1, b: 1, a: 1}
     levels:
-    - requiredPoints: 1000
-      effect: {fileID: 0}
+    - requiredPoints: 60
+      effect: {fileID: 11400000, guid: 7a2fa23a955012b439f2abadd4d659cb, type: 2}
       levelDescription: 
     prerequisiteIds:
-    - _CatLove1
+    - _NoviceCatPetter
     position: {x: 0, y: 200}
-    isUnlocked: 0
-    currentLevel: 0
+    isUnlocked: 1
+    currentLevel: 1
     tier: 0
-  - id: _Lover
-    skillName: Lover
-    description: 'You''re a true lover. '
+  - id: _CautiousLover
+    skillName: Cautious Lover
+    description: 'You''re still a little insecure, but your cat seems to like what
+      you''re doing. Gain more love from petting it. '
     icon: {fileID: 0}
     nodeColor: {r: 1, g: 1, b: 1, a: 1}
     levels:
-    - requiredPoints: 1000
-      effect: {fileID: 0}
+    - requiredPoints: 80
+      effect: {fileID: 11400000, guid: b7689213f98c1a641a6e1122fbd730b9, type: 2}
+      levelDescription: 
+    - requiredPoints: 100
+      effect: {fileID: 11400000, guid: b7689213f98c1a641a6e1122fbd730b9, type: 2}
+      levelDescription: 
+    - requiredPoints: 120
+      effect: {fileID: 11400000, guid: b7689213f98c1a641a6e1122fbd730b9, type: 2}
+      levelDescription: 
+    - requiredPoints: 150
+      effect: {fileID: 11400000, guid: b7689213f98c1a641a6e1122fbd730b9, type: 2}
       levelDescription: 
     prerequisiteIds:
     - _CatZones1
@@ -66,44 +81,44 @@ MonoBehaviour:
     currentLevel: 0
     tier: 0
   - id: _CatZones2
-    skillName: Cat Zones 2
-    description: You gained your cat's trust. Touch it on more sensible body parts
-      like cheeks, head, and chin.
+    skillName: Zones of Pleasure 2
+    description: 'The cat shows interest in your touches. Touch her in more vulnerable
+      areas to give it extra pleasure.
+
+
+      New zones: cheeks, chin, head'
     icon: {fileID: 0}
     nodeColor: {r: 1, g: 1, b: 1, a: 1}
     levels:
-    - requiredPoints: 1
+    - requiredPoints: 200
       effect: {fileID: 11400000, guid: 9d69b04c18ba3f64e80876511c6b30c3, type: 2}
       levelDescription: 
     prerequisiteIds:
-    - _Lover
+    - _CautiousLover
     position: {x: 0, y: 600}
     isUnlocked: 0
     currentLevel: 0
     tier: 0
-  - id: _HandOfAphrodite
-    skillName: Hand of Aphrodite
-    description: 'Your hands become so soft. No cat can resist.
-
-
-      *1.5 love'
+  - id: _Lover
+    skillName: Lover
+    description: Your cat loves your touches. Gain more love from petting it.
     icon: {fileID: 0}
     nodeColor: {r: 1, g: 1, b: 1, a: 1}
     levels:
-    - requiredPoints: 1000
-      effect: {fileID: 0}
+    - requiredPoints: 130
+      effect: {fileID: 11400000, guid: b7689213f98c1a641a6e1122fbd730b9, type: 2}
+      levelDescription: 
+    - requiredPoints: 150
+      effect: {fileID: 11400000, guid: b7689213f98c1a641a6e1122fbd730b9, type: 2}
+      levelDescription: 
+    - requiredPoints: 180
+      effect: {fileID: 11400000, guid: b7689213f98c1a641a6e1122fbd730b9, type: 2}
+      levelDescription: 
+    - requiredPoints: 250
+      effect: {fileID: 11400000, guid: b7689213f98c1a641a6e1122fbd730b9, type: 2}
       levelDescription: 
     - requiredPoints: 1000
-      effect: {fileID: 0}
-      levelDescription: 
-    - requiredPoints: 1000
-      effect: {fileID: 0}
-      levelDescription: 
-    - requiredPoints: 1000
-      effect: {fileID: 0}
-      levelDescription: 
-    - requiredPoints: 1000
-      effect: {fileID: 0}
+      effect: {fileID: 11400000, guid: b7689213f98c1a641a6e1122fbd730b9, type: 2}
       levelDescription: 
     prerequisiteIds:
     - _CatZones2
@@ -112,20 +127,20 @@ MonoBehaviour:
     currentLevel: 0
     tier: 0
   - id: _CatZones3
-    skillName: Cat Zones 3
-    description: 'Your cat starts to show affection to you. She wants to be touched
-      on even more vulnerable body parts.
+    skillName: Zones of Pleasure 3
+    description: 'You gained your cat''s trust. It wants you to touch it on more
+      unconventional areas.
 
 
-      Paws can be petted.'
+      New zones: paws'
     icon: {fileID: 0}
     nodeColor: {r: 1, g: 1, b: 1, a: 1}
     levels:
-    - requiredPoints: 500
-      effect: {fileID: 0}
+    - requiredPoints: 300
+      effect: {fileID: 11400000, guid: 76a2e3194dfe5734eabeec62bf73f5be, type: 2}
       levelDescription: 
     prerequisiteIds:
-    - _HandOfAphrodite
+    - _Lover
     position: {x: 0, y: 1000}
     isUnlocked: 0
     currentLevel: 0

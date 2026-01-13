@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28dcfef35a8d524b884c35f681b21e4, type: 3}
   m_Name: GameplaySettings
   m_EditorClassIdentifier: Assembly-CSharp::GameplaySettings
-  requiredPettingPerHeart: 0.2
+  requiredPettingPerHeart: 0.5
   targetPettingPerZone: 10
   optimalPettingSpeed: 0.3
-  pettingSpeedLowerTolerance: 0.01
-  pettingSpeedUpperTolerance: 0.6
-  optimalPettingSpeedMultiplier: 1
+  pettingSpeedLowerTolerance: 0.05
+  pettingSpeedUpperTolerance: 0.35
+  optimalPettingSpeedMultiplier: 4
+  pettingSpeedOutOfRangeMultiplier: 0.2
+  maxPettingSpeed: 0.7
   heartsMinSpawnInterval: 0.1
   multipleHeartsMinSpawnInterval: 0.1
   heartsPerFinishedZone: 20
@@ -29,4 +31,4 @@ MonoBehaviour:
   - BodyLeftSide
   - TailStart
   zoneActivationDelay: 1
-  zonePettingBaseMultiplier: 5
+  zonePettingBaseMultiplier: 2.5

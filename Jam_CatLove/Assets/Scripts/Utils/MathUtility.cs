@@ -5,9 +5,9 @@ public static class MathUtility
     /// <summary>
     /// Returns a multiplier if speed is within tolerancePercentage of optimalSpeed. Else lerps between maxMultiplier and 1f.
     /// </summary>
-    public static float GetSpeedMultiplier(float speed, float optimalSpeed = 5f, float minSpeed = 0.01f, float maxSpeed = 10f, float maxMultiplier = 4f)
+    public static float GetSpeedMultiplier(float speed, float optimalSpeed = 5f, float minSpeed = 0.01f, float maxSpeed = 10f, float minMultiplier = 1f, float maxMultiplier = 4f)
     {
-        const float minMultiplier = 1f;
+        //const float minMultiplier = 1f;
     
         // If outside the speed range, return min multiplier
         if (speed < minSpeed || speed > maxSpeed)

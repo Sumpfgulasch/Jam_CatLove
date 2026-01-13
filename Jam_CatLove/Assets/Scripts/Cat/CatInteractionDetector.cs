@@ -4,7 +4,7 @@ using System;
 
 public class CatInteractionDetector : MonoBehaviour
 {
-    public delegate void CatPetted(string zone, float speed, Vector2 cursorPosition);
+    public delegate void CatPetted(string zone, float speed, Vector2 cursorPosition, bool isGrab);
 
     public event CatPetted OnCatPetted;
 
@@ -64,16 +64,7 @@ public class CatInteractionDetector : MonoBehaviour
             // speed unit: screen diagonals per second
             var speed = (((cursorPosition - previousCursorPosition) / Time.deltaTime).magnitude) / screenDiagonal;
             
-            OnCatPetted?.Invoke(hitCatLayer, speed, cursorPosition);
-            
-            // var pixelDisplacement = (cursorPosition - previousCursorPosition).magnitude;
-            // var pixelsPerSecond = pixelDisplacement / Time.deltaTime;
-            // var speedDebug = pixelsPerSecond / screenDiagonal;
-            //
-            // Debug.Log($"Pixels moved: {pixelDisplacement}, Time.deltaTime: {Time.deltaTime}, Pixels/sec: {pixelsPerSecond}, ScreenDiagonal: {screenDiagonal}, Speed: {speedDebug}");
-            
-            
-            //Debug.Log($"layer: {hitCatLayer}, speed: {speed}");
+            OnCatPetted?.Invoke(hitCatLayer, speed, cursorPosition, false);
         }
 
         previousCursorPosition = cursorPosition;
@@ -105,7 +96,7 @@ public class CatInteractionDetector : MonoBehaviour
             isInteractionButtonHold = true;
             if (isCatHover)
             {
-                OnCatPetted?.Invoke(hitCatLayer, 0.3f, cursorPosition); // speed arbitrary
+                OnCatPetted?.Invoke(hitCatLayer, 0, cursorPosition, true); // speed arbitrary
             }
         }
         else if (context.canceled)

@@ -6,12 +6,14 @@ public class GameplaySettings : ScriptableObject
     [Header("Petting")]
     [Tooltip("Without any multiplier, this means - while petting - pointer distance in screen diagonals per second")]
     public float requiredPettingPerHeart = 0.01f;
+    public float requiredPettingBetweenGrabs = 0.3f;
     public float targetPettingPerZone = 300f;
-
+    [Space]
     public float optimalPettingSpeed = 5f;
     public float pettingSpeedLowerTolerance = 0.25f;
     public float pettingSpeedUpperTolerance = 0.25f;
-    public float optimalPettingSpeedMultiplier = 20f;
+    public float optimalPettingSpeedMultiplier = 3f;
+    public float pettingSpeedOutOfRangeMultiplier = 0.5f;
     [Space] 
     public float maxPettingSpeed = 8f;
 

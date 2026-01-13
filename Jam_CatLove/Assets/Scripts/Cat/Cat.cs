@@ -15,6 +15,8 @@ public class Cat : MonoBehaviour
     public CatZones Zones { get; private set; }
     
     private CatVFX vfx;
+    
+    private float happiness = 0f;
 
     public void Init(GameplaySettings gameplaySettings, CatVisualSettings visualSettings)
     {
@@ -27,11 +29,14 @@ public class Cat : MonoBehaviour
     public void Tick(List<CatZone> activeZones)
     {
         vfx.Tick(activeZones);
+        
+        var smoothedHappiness = Mathf.MoveTowards(animator.GetFloat("Happiness"), happiness, 0.3f * Time.deltaTime);
+        animator.SetFloat("Happiness", smoothedHappiness);
     }
 
     public void SetAnimationHappiness(float happiness)
     {
-        animator.SetFloat("Happiness", happiness);
+        this.happiness = happiness;
     }
 
 

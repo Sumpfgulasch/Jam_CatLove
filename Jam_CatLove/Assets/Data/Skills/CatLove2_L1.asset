@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac08646f982411143a967543ded4b3f0, type: 3}
-  m_Name: CatLove1_L3
+  m_Name: CatLove2_L1
   m_EditorClassIdentifier: Assembly-CSharp::UI.Examples.CatLove1SkillEffect
-  effectDescription: 1.3x petting speed
-  pettingMultiplier: 1.35
+  effectDescription: 
+  pettingMultiplier: 1.1
