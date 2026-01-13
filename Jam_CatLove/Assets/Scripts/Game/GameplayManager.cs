@@ -82,7 +82,7 @@ public class GameplayManager : MonoBehaviour {
             gameplaySettings.optimalPettingSpeedMultiplier);
         
         var clampedSpeed = Mathf.Clamp(speed, 0, gameplaySettings.maxPettingSpeed);
-        var currentPetting = (clampedSpeed * PlayerSkillTreeState.Instance.PettingMultiplier * optimalSpeedMultiplier * Time.deltaTime);
+        var currentPetting = (clampedSpeed * PlayerSkillTreeState.Instance.PettingMultiplier * optimalSpeedMultiplier);
         
         // cat zone?
         if (PlayerSkillTreeState.Instance.UnlockedZones) {

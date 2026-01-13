@@ -187,13 +187,16 @@
 			<value>8</value>
 		</property>
 		<property name="filterTypeB">
-			<value>7</value>
+			<value>11</value>
 		</property>
 		<property name="frequencyA">
 			<value>2828.78833</value>
 		</property>
 		<property name="frequencyB">
-			<value>341.809235</value>
+			<value>50.8099937</value>
+		</property>
+		<property name="qualityB">
+			<value>0.100000001</value>
 		</property>
 		<property name="gainA">
 			<value>-1.55172348</value>

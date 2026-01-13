@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28dcfef35a8d524b884c35f681b21e4, type: 3}
   m_Name: GameplaySettings
   m_EditorClassIdentifier: Assembly-CSharp::GameplaySettings
-  requiredPettingPerHeart: 0.5
-  targetPettingPerZone: 10
+  requiredPettingPerHeart: 140
+  requiredPettingBetweenGrabs: 0.3
+  targetPettingPerZone: 2900
   optimalPettingSpeed: 0.3
   pettingSpeedLowerTolerance: 0.05
   pettingSpeedUpperTolerance: 0.35
