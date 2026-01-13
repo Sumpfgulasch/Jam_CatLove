@@ -14,23 +14,25 @@ namespace Audio
         public static readonly FMOD.GUID CatMeows = new FMOD.GUID { Data1 = 1369531543, Data2 = 1224165700, Data3 = -1045484356, Data4 = 377330144 };
         public static readonly FMOD.GUID CatPetting = new FMOD.GUID { Data1 = -1245905491, Data2 = 1267082880, Data3 = 339970457, Data4 = -588250560 };
         public static readonly FMOD.GUID CatPurr = new FMOD.GUID { Data1 = 449229274, Data2 = 1122905702, Data3 = 1781778086, Data4 = 1294659576 };
+        public static readonly FMOD.GUID HeartGained = new FMOD.GUID { Data1 = 1090044701, Data2 = 1212486469, Data3 = 1397183423, Data4 = 1890792028 };
 
 
         public static readonly Dictionary<string, FMOD.GUID> AudioEventNameToGuid = new Dictionary<string, FMOD.GUID>()
         {
-                {"CatMeows", CatMeows}, {"CatPetting", CatPetting}, {"CatPurr", CatPurr}, 
+                {"CatMeows", CatMeows}, {"CatPetting", CatPetting}, {"CatPurr", CatPurr}, {"HeartGained", HeartGained}, 
         };
     }
 
     public class AudioBus
     {
         public static readonly FMOD.GUID MasterBus = new FMOD.GUID { Data1 = -323976756, Data2 = 1138677162, Data3 = -583288656, Data4 = -142521793 };
+        public static readonly FMOD.GUID HeartsGained = new FMOD.GUID { Data1 = 4461285, Data2 = 1173471388, Data3 = 313641382, Data4 = -2127834919 };
         public static readonly FMOD.GUID Reverb = new FMOD.GUID { Data1 = -38252101, Data2 = 1102538477, Data3 = -819948353, Data4 = -1790549757 };
 
 
         public static readonly Dictionary<string, FMOD.GUID> AudioBusNameToGuid = new Dictionary<string, FMOD.GUID>()
         {
-                {"MasterBus", MasterBus}, {"Reverb", Reverb}, 
+                {"MasterBus", MasterBus}, {"HeartsGained", HeartsGained}, {"Reverb", Reverb}, 
         };
     }
 

@@ -117,6 +117,7 @@ public class GameplayManager : MonoBehaviour {
         var position = cursorPosition + new Vector2(0, Screen.height * catVisualSettings.heartSpawnYOffset);
 
         UIManager.Instance.SpawnCatHearts(position, hearts);
+        AudioManager.Instance.Play2DAudio(AudioEvent.HeartGained);
 
         heartsCount += hearts;
         lastHeartSpawn = Time.time;
